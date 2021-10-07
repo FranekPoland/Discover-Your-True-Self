@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/FranekPoland/Discover-Your-True-Self/issues"
   },
-  "homepage": "https://github.com/FranekPoland/Discover-Your-True-Self#readme"
+  "homepage": "https://github.com/FranekPoland/Discover-Your-True-Self#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
