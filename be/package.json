@@ -1,0 +1,26 @@
+{
+  "name": "true-self",
+  "version": "1.0.0",
+  "description": "get to know who you are",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranekPoland/Discover-Your-True-Self.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "js",
+    "html",
+    "web"
+  ],
+  "author": "F.K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FranekPoland/Discover-Your-True-Self/issues"
+  },
+  "homepage": "https://github.com/FranekPoland/Discover-Your-True-Self#readme"
+}
