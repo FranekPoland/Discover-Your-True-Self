@@ -1,7 +1,7 @@
 {
-  "name": "true-self",
+  "name": "discover-your-true-self",
   "version": "1.0.0",
-  "description": "get to know who you are",
+  "description": "psycho test",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,13 +11,14 @@
     "url": "git+https://github.com/FranekPoland/Discover-Your-True-Self.git"
   },
   "keywords": [
-    "express",
     "node",
     "js",
+    "express",
+    "css",
     "html",
-    "web"
+    "survey"
   ],
-  "author": "F.K",
+  "author": "F.K.",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/FranekPoland/Discover-Your-True-Self/issues"
