@@ -1,0 +1,87 @@
+{
+    "question1": {
+        "q":"1. Wybierz cechy charakteru, które według Ciebie musi posiadać mężczyzna aby być atrakcyjnym w oczach kobiet",
+        "2":"Pewny siebie, zawadiacki, rozrywkowy, z poczuciem humoru",
+        "1":"Opiekuńczy, wrażliwy, łagodny, z poczuciem humoru",
+        "3":"Asertywny, z poczuciem humoru, niezależny, nastawiony na rozwój "
+    },
+    "question2": {
+        "q":"2. Jakich mężczyzn lubią podrywać kobiety",
+        "b":"Kobiety podrywają przede wszystkim silnych, pewnych siebie mężczyzn. Pieniądze i status społeczny nie mają dla nich aż takiego znaczenia jeśli obiekt ich zainteresowania jest bardzo przystojny.",
+        "c":"Kobiety najbardziej lubią podrywać ułożonych i szarmanckich facetów. Rycerskie cechy to coś czemu nie potrafią się oprzeć. Wygląd to rzecz drugorzędna, liczy się charakter i dobre serce.",
+        "r":"Kobiety podrywają zwracają uwagę na całokształt mężczyzny: wygląd, pozycja społeczna, zawodowa i materialna. Cechy charakteru także są ważne, ale nie aż tak ważne."
+    },
+    "question3": {
+        "q":"Jeśli jakiś mężczyzna jest samotny to...",
+        "c":"To najprawdopodobniej jest to jego wina. Musi popracować nad sobą, swoim wyglądem, zainteresowaniami. Musi mieć coś do zaoferowania.",
+        "b":"To przypuszczalnie nie podoba się fizycznie kobietom. Bez odpowiednich rysów twarzy i wysokiego wzrostu i odpowiedniej budowy ciała bardzo trudno mu będzie znaleźć partnerkę.",
+        "r":"To być może powinien rozważyć jakieś zmiany w sobie. Poprawić swój wygląd, popracować nad sobą, swoimi mocnymi stronami i słabościami."
+    },
+    "question4": {
+        "q1":"4. Dokończ zdanie. Kobiety to...",
+        "c":"Kobiety to płeć piękna. Dlatego trzeba o nie dbać jak o kwiaty.",
+        "r":"Kobiety to silna płeć. Dlatego trzeba umieć z nimi rozmawiać.",
+        "b":"Kobiety to słabsza płeć. Dlatego potrafią być wyrachowane."
+    },
+    "question5": {
+        "q1":"Przyjaźń damsko męska",
+        "b":"Nie istnieje. Zazwyczaj kończy się tak, że jedna ze stron trafia do friendzone drugiej.",
+        "c":"Istnieje. Znam wiele takich sytuacji.",
+        "r":"Istnieje ale tylko wtedy gdy jej strony są spokrewnione np. brat i siostra, kuzyn i kuzynka."
+    },
+    "question6": {
+        "q1":"6. Seks w związku to:",
+        "c":"Dodatek, ważny, ale dodatek. Najważniejsze jest mieć drugą połówkę, przed którą można otworzyć swoje serce, spędzać razem czas i cieszyć się jej obecnością.",
+        "b":"Fundament związku, jeśli zanika namiętność to znaczy, że związek najprawdopodobniej wkrótce się rozpadnie. Być może druga strona ma już kogoś innego na oku.",
+        "r":"Bardzo ważna część związku, która go jednoczy. Brak seksu może być sygnałem, że coś należy razem przepracować i poszukać rozwiązania."
+    },
+    "question7" : {
+        "q1":"7. Na bezludną wyspę zabrałbym ze sobą:",
+        "c":"Książki, dużo książek.",
+        "r":"Pakiet preppersa (scyzoryk, krzesiwo, leki).",
+        "b":"Papierosy, alkohol i inne używki"
+    },
+    "question8": {
+        "q1":"8. Twoja koleżanka, która jest samotną matką poprosiła Cię o pomoc w przeprowadzce, a Ty masz już zaplanowany czas wieczorem, co robisz?",
+        "b": "Coś czuję, że dzieciak przeszkodzi mi w odebraniu późniejszej nagrody więc szkoda mojego poświęcenia",
+        "r": "Informuję ją, że nie dam rady jej pomóc z uwagi na to, że mam już plany",
+        "c": "Pomagam jej. Przeprowadzka to fizyczna praca, a wiadomo, że kobiety są słabsze od mężczyzn i taka sytuacja może ją przerosnąć."
+    },
+    "question9": {
+        "q1": "9. Spodobała Ci się dziewczyna z Twojej firmy i chciałbyś bliżej ją poznać, ale nie znasz jej za dobrze, co robisz?",
+        "r": "Szukam naturalnej okazji do kontaktu, najlepiej przypadkowej żeby do niej zagadać i trochę lepiej ją poznać.Może z czasem uda się zaprosić ją na kawę.",
+        "b": "Sprawdzam jej facebook’a, jakie ma zainteresowania, poglądy, jak spędza wolny czas. Nie wiadomo czy skórka warta wyprawki.",
+        "c": "Uśmiecham się do niej za każdym razem kiedy ją widzę, zagaduję w wolnych chwilach i staram się na początek zaprzyjaźnić."
+    },
+    "question10": {
+        "q1":"10. Bardziej romantyczną płcią mimo wszystko są:",
+        "c": "Kobiety.",
+        "b": "Mężczyzni.",
+        "r": "Romantyzm to domena obydwu płci."
+    },
+    "question11": {
+        "q1": "11. Komedie romantyczne?",
+        "c": "Lubię je oglądać, świetnie się przy nich bawię.",
+        "r": "Większość jest słaba, ale niektóre są całkiem zabawne.",
+        "b": "To wymyślone bzdury, kobietom chodzi o seks z przystojnym facetem a nie romantyczną kolację przy świecach, no chyba, że z przystojnym facetem."
+    },
+    "question12": {
+        "q1": "13. Kobiety osiągają sukcesy w życiu...",
+        "r":"Głównie powodu wyglądu. Im bardziej atrakcyjna kobieta tym większe szanse na sukces w różnych aspektach życia.",
+        "c":"Z powodu ciężkiej pracy, dobrego wykształcenia, siły woli i samozaparcia.",
+        "b":"Zazwyczaj jest to połączenie wyglądu, charakteru, pracy nad sobą i okoliczności."
+    },
+    "question13": {
+        "q1":"14. Aplikacje randkowe to:",
+        "r":"Szansa na znalezienie drugiej połówki, choć nie jest to łatwe.",
+        "c":"Szansa na poznanie drugiej połówki lub znalezienie przyjaciółki/przyjaciela.",
+        "b":"Strata czasu, najprzystojniejsi zgarniają wszystko."
+    },
+    "question14": {
+        "q1":"15. Dokończ zdanie. Mężczyźni to:",
+        "c":"Mężczyźni to silniejsza i uprzywilejowana płeć, dlatego kobiety ich potrzebują",
+        "b":"Mężczyźni to silniejsza płeć, która bierze od życia to czego chce",
+        "r":"Mężczyźni to silniejsza płeć, która zaczyna tracić swoją pozycję we współczesnym świecie"
+    }
+}
+

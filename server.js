@@ -10,3 +10,4 @@ app.get("/*", (req, res) => {
 });
 
 app.listen(process.env.PORT || 5060, () => console.log("Server running... on port 5060"));
+
