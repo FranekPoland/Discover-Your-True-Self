@@ -1,3 +1,5 @@
+import findInputs from "./modules/questionmaker.js";
+
 var btn1 = document.querySelector('.button1');
 
 
@@ -9,7 +11,6 @@ btn1.addEventListener('click', function(){
     $('.start-container').hide();
     $('.btncont').hide();
     $('.matrix').removeClass('matrix')
-
 }, false);
 
-
+findInputs();
