@@ -13,4 +13,4 @@ btn1.addEventListener('click', function(){
     $('.matrix').removeClass('matrix')
 }, false);
 
-findInputs();
+
