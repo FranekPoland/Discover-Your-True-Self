@@ -4,7 +4,7 @@ import json from "../questions.json" assert {
     type: 'json'
 };
 
-
+var counter = 0;
 var findQ1HtmlElems = function () {
     var arrOfElems = [];
     var q = document.getElementById('q1');
@@ -37,9 +37,16 @@ var fillHtmlElems = function (element, string) {
 }
 
 var getQuestionObject = function (arr) {
-    for (var key in json) {
-        getString(json[key], arr)
-    }
+    // use counter
+    counter = 0;
+
+    getString(json[counter], arr);
+    couter++;
+    getString(json[counter], arr)
+    // for (var key in json) {
+    //     getString(json[key], arr)
+    // }
+//TODO foreach 
 }
 
 var getString = function (object, arrOfElems) {
