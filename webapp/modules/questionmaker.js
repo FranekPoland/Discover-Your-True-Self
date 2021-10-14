@@ -1,12 +1,12 @@
 // import json from '../questions.json';
 
-import {saveAnswer} from './analyzer.js';
+import { saveAnswer } from './analyzer.js';
+
+import { storage } from "./storage.js";
 
 import json from "../questions.json" assert {
     type: 'json'
 };
-
-var radios = document.querySelectorAll('input[type="radio"]');
 
 var counter = 0;
 var findQ1HtmlElems = function () {
@@ -24,7 +24,6 @@ var findQ1HtmlElems = function () {
 }
 
 
-var arrOfElems = findQ1HtmlElems();
 
 var findQ2HtmlElems = function () {
     var arrOfElems = [];
@@ -39,7 +38,6 @@ var findQ2HtmlElems = function () {
     return arrOfElems;
 }
 
-var arrOfElems2 = findQ2HtmlElems();
 
 
 var fillHtmlElems = function (element, string) {
@@ -69,7 +67,7 @@ var getString = function (object, arrOfElems) {
     for (var key in object) {
         str = object[key];
         var element = arrOfElems[i];
-        var  j;
+        var j;
         if (i !== 0) {
             j = i + 3;
         }
@@ -83,23 +81,45 @@ var getString = function (object, arrOfElems) {
 
 
 var clearInput = function () {
-    $('input[type="radio"]').each(function(){
-        $(this).prop('checked', false);  
+    $('input[type="radio"]').each(function () {
+        $(this).prop('checked', false);
     });
- } 
+    $('.btn-next').hide();
+}
 
 var btnNext = document.querySelector('.btn-next');
-    btnNext.addEventListener('click', function (event) { 
-        saveAnswer();
-        counter++;
+btnNext.addEventListener('click', function (event) {
+    saveAnswer();
+    counter++;
     applyQuestion1Object();
     applyQuestion2Object();
     clearInput();
+    $('.btn-back').show();
+    if (storage.answers.length === json.length) {
+        $('#result').show();
+        $('.btn-back').hide();
+        $('.question-cointaner').hide();
+    }
 }, false);
 
+var btnBack = document.querySelector('.btn-back');
+btnBack.addEventListener('click', function (event) {
+    counter = counter -3;
+    applyQuestion1Object();
+    applyQuestion2Object();
+    var value1 = storage.answers.pop();
+    var value2 = storage.answers.pop();
+    fillInputs(value1, value2);
+    $('.btn-next').show();
+}, false);
+
+var fillInputs = function(value1, value2) {
+    $('input[value='+value1+']').prop('checked', true);
+    $('input[value='+value2+']').prop('checked', true);
+}
 
 
-var initSurvey =function() {
+var initSurvey = function () {
     console.log('init');
     applyQuestion1Object();
     applyQuestion2Object();

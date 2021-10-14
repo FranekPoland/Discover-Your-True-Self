@@ -66,22 +66,34 @@
         "b": "To wymyślone bzdury, kobietom chodzi o seks z przystojnym facetem a nie romantyczną kolację przy świecach, no chyba, że z przystojnym facetem."
     },
     {
-        "q": "13. Kobiety osiągają sukcesy w życiu...",
+        "q": "12. Kobiety osiągają sukcesy w życiu...",
         "r":"Głównie powodu wyglądu. Im bardziej atrakcyjna kobieta tym większe szanse na sukces w różnych aspektach życia.",
         "c":"Z powodu ciężkiej pracy, dobrego wykształcenia, siły woli i samozaparcia.",
         "b":"Zazwyczaj jest to połączenie wyglądu, charakteru, pracy nad sobą i okoliczności."
     },
     {
-        "q":"14. Aplikacje randkowe to:",
+        "q":"13. Aplikacje randkowe to:",
         "r":"Szansa na znalezienie drugiej połówki, choć nie jest to łatwe.",
         "c":"Szansa na poznanie drugiej połówki lub znalezienie przyjaciółki/przyjaciela.",
         "b":"Strata czasu, najprzystojniejsi zgarniają wszystko."
     },
     {
-        "q":"15. Dokończ zdanie. Mężczyźni to:",
-        "c":"Mężczyźni to silniejsza i uprzywilejowana płeć, dlatego kobiety ich potrzebują",
-        "b":"Mężczyźni to silniejsza płeć, która bierze od życia to czego chce",
-        "r":"Mężczyźni to silniejsza płeć, która zaczyna tracić swoją pozycję we współczesnym świecie"
+        "q":"14. Dokończ zdanie. Mężczyźni to:",
+        "c":"Mężczyźni to silniejsza i uprzywilejowana płeć, dlatego kobiety ich potrzebują.",
+        "b":"Mężczyźni to silniejsza płeć, która bierze od życia to czego chce.",
+        "r":"Mężczyźni to silniejsza płeć, która zaczyna tracić swoją pozycję we współczesnym świecie."
+    },
+    {
+        "q":"15. Twoim zdaniem kobiety posiadały więcej partnerów seksualnych oraz miały niższy wiek inicjacji seksualnej mają",
+        "c":"...mniej stabilne małżeństwa oraz mniejsze zadowolenie ze związku i niższy poziom szczęścia.",
+        "b":"...bardziej stabilne małżeństwa, są bardziej pewne siebie w związku i odczuwają więcej zadowolenia w życiu.",
+        "r":"...natura kobiet jest hipergamiczna, dlatego jest to bez większego wpływu na życie danej kobiety."
+    },
+    {
+        "q":"15. Twoim zdaniem kobiety posiadały więcej partnerów seksualnych oraz miały niższy wiek inicjacji seksualnej mają",
+        "c":"...mniej stabilne małżeństwa oraz mniejsze zadowolenie ze związku i niższy poziom szczęścia.",
+        "b":"...bardziej stabilne małżeństwa, są bardziej pewne siebie w związku i odczuwają więcej zadowolenia w życiu.",
+        "r":"...natura kobiet jest hipergamiczna, dlatego jest to bez większego wpływu na życie danej kobiety."
     }
 ]
 

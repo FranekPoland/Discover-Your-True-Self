@@ -28,50 +28,51 @@
     <div class="question-cointaner container">
         <div class="container">
             <div class="question">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div id="q1">
-
-                        </div>
-                        <div class="input-group-text">
-                            <input type="radio" name="answer1" id="i1">
-                            <label id="a1" class="label"></label>
-                        </div>
-                        <div class="input-group-text">
-                            <input type="radio" name="answer1" id="i2">
-                            <label id="a2" class="label"></label>
-                        </div>
-                        <div class="input-group-text">
-                            <input type="radio" name="answer1" id="i3">
-                            <label id="a3" class="label"> </label>
-                        </div>
-                    </div>
+                <div id="q1" class="form-check-label"></div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="answer1" id="i1">
+                    <label id="a1" class="form-check-label"></label>
                 </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="answer1" id="i2">
+                    <label id="a2" class="form-check-label"></label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="answer1" id="i3">
+                    <label id="a3" class="form-check-label"> </label>
+                </div>
+
             </div>
         </div>
         <div class="container">
             <div class="question">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div id="q2">
-                        </div>
-                        <div class="input-group-text">
-                            <input type="radio" name="answer2" id="i4">
-                            <label id="a4" class="label"></div>
-                    </div>
-                    <div class="input-group-text">
-                        <input type="radio" name="answer2" id="i5">
-                        <label id="a5" class="label"></label>
-                    </div>
-                    <div class="input-group-text">
-                        <input type="radio" name="answer2" id="i6">
-                        <label id="a6" class="label"></label>
-                    </div>
+                <div id="q2" class="form-check-label"></div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="answer2" id="i4">
+                    <label id="a4" class="form-check-label"></label>
                 </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="answer2" id="i5">
+                    <label id="a5" class="form-check-label"></label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="answer2" id="i6">
+                    <label id="a6" class="form-check-label"></label>
+                </div>
+
             </div>
         </div>
-        <button class="btn btn-success btn-next">Dalej</button>
     </div>
+    <div class="container">
+        <div>
+            <button class="btn btn-success hidden btn-back">Wstecz</button>
+            <button class="btn btn-success hidden btn-next">Dalej</button>
+        </div>
+        <button type="button" class="btn btn-danger hidden" id="result">Pokaż mi prawdę</button>
+        <div id="my-result" class="hidden"></div>
+
+    </div>
+
 
 
 

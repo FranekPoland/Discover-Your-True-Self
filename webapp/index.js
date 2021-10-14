@@ -2,6 +2,13 @@ import {initSurvey} from "./modules/questionmaker.js";
 
 var btn1 = document.querySelector('.button1');
 
+$('input[type="radio"]').click(function(){
+    console.log($('input:checked'));
+    if ($( "input:checked").length === 2) {
+        $('.btn-next').show();
+
+    }
+});
 
 var init = function() {
     $('.question-cointaner').hide();
