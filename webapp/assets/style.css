@@ -40,7 +40,20 @@ body {
     color: black;
 }
 
+.question-cointaner {
+    margin-top: 80px;
+}
+
 .label {
 
     word-wrap: break-word;
+}
+
+#my-result {
+    padding: 20px;
+    background: white;
+}
+
+#result {
+    margin-top: 30vh;
 }
