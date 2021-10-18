@@ -2,7 +2,21 @@ import {
     storage
 } from "./storage.js";
 
-var getType = function (c, b, r) {
+var getType = function () {
+    var resultArr = getResult();
+    var c, b, r;
+    resultArr.forEach(function(result, i) {
+        if (i === 0) {
+            c = result;
+        }
+        if (i === 1) {
+            b = result;
+        }
+        if (i === 2) {
+            r = result;
+        }
+    });
+
     var type = '';
 
     if (b > c) {
@@ -40,13 +54,14 @@ var getResult = function () {
             r++;
         }
     });
-    var type = getType(c, b, r);
     return [c,b,r]
     // var result = 'Gratuluje jesteś zwycięzcą: ' + type;
     // $('#my-result').text(result).show();
 };
 
 
+
 export {
-    getResult
+    getResult,
+    getType
 }

@@ -4,7 +4,7 @@
 
 import { storage } from "./storage.js";
 
-import json from "../questions.json" assert {
+import json from "../jsons/questions.json" assert {
     type: 'json'
 };
 
