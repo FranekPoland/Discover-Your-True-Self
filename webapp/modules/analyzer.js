@@ -2,22 +2,7 @@ import {
     storage
 } from "./storage.js";
 
-import {createChart} from "./resultdisplayer.js";
-
-var result = document.getElementById('result');
-
-var saveAnswer = function () {
-    var inputs = document.querySelectorAll('input[type="radio"]');
-    inputs.forEach(function (input) {
-        if (input.checked) {
-            storage.answers.push(input.value);
-        }
-    });
-
-    console.log(storage);
-}
-
-var getHighestScore = function (c, b, r) {
+var getType = function (c, b, r) {
     var type = '';
 
     if (b > c) {
@@ -55,24 +40,13 @@ var getResult = function () {
             r++;
         }
     });
-    console.log(c,b,r);
-    var type = getHighestScore(c, b, r);
-    console.log('c', c, 'b', b, 'r', r, type);
+    var type = getType(c, b, r);
     return [c,b,r]
     // var result = 'Gratuluje jesteś zwycięzcą: ' + type;
     // $('#my-result').text(result).show();
-}
-
-var displayProfile = function() {
-    createChart();
-    $('#result').hide();
-    $('.chartcontainer').show();
-}
-
-result.addEventListener('click', displayProfile, false);
+};
 
 
 export {
-    saveAnswer,
     getResult
 }

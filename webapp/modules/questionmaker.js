@@ -1,12 +1,42 @@
 // import json from '../questions.json';
 
-import { saveAnswer } from './analyzer.js';
+
 
 import { storage } from "./storage.js";
 
 import json from "../questions.json" assert {
     type: 'json'
 };
+
+var btnNext = document.querySelector('.btn-next');
+var btnBack = document.querySelector('.btn-back');
+
+
+btnNext.addEventListener('click', function (event) {
+    saveAnswer();
+    counter++;
+    applyQuestion1Object();
+    applyQuestion2Object();
+    clearInput();
+    $('.btn-back').show();
+    if (storage.answers.length === json.length) {
+        $('#result').show();
+        $('.btn-back').hide();
+        $('.question-cointaner').hide();
+    }
+}, false);
+
+btnBack.addEventListener('click', function (event) {
+    counter = counter -3;
+    applyQuestion1Object();
+    applyQuestion2Object();
+    var value1 = storage.answers.pop();
+    var value2 = storage.answers.pop();
+    fillInputs(value1, value2);
+    $('.btn-next').show();
+}, false);
+
+
 
 var counter = 0;
 var findQ1HtmlElems = function () {
@@ -87,31 +117,7 @@ var clearInput = function () {
     $('.btn-next').hide();
 }
 
-var btnNext = document.querySelector('.btn-next');
-btnNext.addEventListener('click', function (event) {
-    saveAnswer();
-    counter++;
-    applyQuestion1Object();
-    applyQuestion2Object();
-    clearInput();
-    $('.btn-back').show();
-    if (storage.answers.length === json.length) {
-        $('#result').show();
-        $('.btn-back').hide();
-        $('.question-cointaner').hide();
-    }
-}, false);
 
-var btnBack = document.querySelector('.btn-back');
-btnBack.addEventListener('click', function (event) {
-    counter = counter -3;
-    applyQuestion1Object();
-    applyQuestion2Object();
-    var value1 = storage.answers.pop();
-    var value2 = storage.answers.pop();
-    fillInputs(value1, value2);
-    $('.btn-next').show();
-}, false);
 
 var fillInputs = function(value1, value2) {
     $('input[value='+value1+']').prop('checked', true);
@@ -120,11 +126,23 @@ var fillInputs = function(value1, value2) {
 
 
 var initSurvey = function () {
-    console.log('init');
     applyQuestion1Object();
     applyQuestion2Object();
 }
 
+var saveAnswer = function () {
+    var inputs = document.querySelectorAll('input[type="radio"]');
+    inputs.forEach(function (input) {
+        if (input.checked) {
+            storage.answers.push(input.value);
+        }
+    });
+}
+
+
 export {
-    initSurvey
+    initSurvey, 
+    saveAnswer,
+    clearInput,
+    fillInputs
 };
