@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/FranekPoland/Discover-Your-True-Self#readme",
   "dependencies": {
+    "chart.js": "^3.5.1",
     "express": "^4.17.1"
   }
 }

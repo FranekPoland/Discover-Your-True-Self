@@ -11,10 +11,11 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link rel="stylesheet" href="assets/style.css" />
+    <script src="../node_modules/chart.js/dist/Chart.js"></script>
 </head>
 
 <body class="matrix">
-
+    
     <div class="container start-container">
         <h1>Poznaj siebie </h1>
 
@@ -24,7 +25,9 @@
         <button type="button" class="btn btn-primary button1">Zacznij podróż</button>
         <a href="https://www.pudelek.pl/" type="button" class="btn btn-primary button2">Wolę śnić dalej</a>
     </div>
-
+    <div class="chartcontainer container hidden">
+        <canvas id="resultChart" width="400" height="400"></canvas>
+    </div>
     <div class="question-cointaner container">
         <div class="container">
             <div class="question">

@@ -1,5 +1,5 @@
 import {initSurvey} from "./modules/questionmaker.js";
-
+import { createChart } from "./modules/resultdisplayer.js";
 var btn1 = document.querySelector('.button1');
 
 $('input[type="radio"]').click(function(){
