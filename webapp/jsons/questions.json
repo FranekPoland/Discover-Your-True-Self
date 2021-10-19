@@ -9,8 +9,91 @@
         "q":"2. Jakich mężczyzn lubią podrywać kobiety",
         "b":"Kobiety podrywają przede wszystkim silnych, pewnych siebie mężczyzn. Pieniądze i status społeczny nie mają dla nich aż takiego znaczenia jeśli obiekt ich zainteresowania jest bardzo przystojny.",
         "c":"Kobiety najbardziej lubią podrywać ułożonych i szarmanckich facetów. Rycerskie cechy to coś czemu nie potrafią się oprzeć. Wygląd to rzecz drugorzędna, liczy się charakter i dobre serce.",
-        "r":"Kobiety podrywają zwracają uwagę na całokształt mężczyzny: wygląd, pozycja społeczna, zawodowa i materialna. Cechy charakteru także są ważne, ale nie aż tak ważne."
+        "r":"Kobiety podrywając faceta zwracają uwagę na całokształt mężczyzny: wygląd, pozycja społeczna, zawodowa i materialna. Cechy charakteru także są ważne, ale nie aż tak ważne."
+    },
+    {
+        "q":"3. Jeśli jakiś mężczyzna jest samotny to...",
+        "c":"To najprawdopodobniej jest to jego wina. Musi popracować nad sobą, swoim wyglądem, zainteresowaniami. Musi mieć coś do zaoferowania.",
+        "b":"To przypuszczalnie nie podoba się fizycznie kobietom. Bez odpowiednich rysów twarzy, wysokiego wzrostu i odpowiedniej budowy ciała bardzo trudno mu będzie znaleźć partnerkę.",
+        "r":"To być może powinien rozważyć jakieś zmiany w sobie. Poprawić swój wygląd, popracować nad sobą, swoimi mocnymi stronami i słabościami."
+    },
+    {
+        "q":"4. Dokończ zdanie. Kobiety to...",
+        "c":"Kobiety to płeć piękna. Dlatego trzeba o nie dbać jak o kwiaty.",
+        "r":"Kobiety to silna płeć. Dlatego trzeba umieć z nimi rozmawiać.",
+        "b":"Kobiety to słabsza płeć. Dlatego potrafią być wyrachowane."
+    },
+    {
+        "q":"5. Przyjaźń damsko męska",
+        "b":"Nie istnieje. Zazwyczaj kończy się tak, że jedna ze stron trafia do friendzone drugiej.",
+        "c":"Istnieje. Znam wiele takich sytuacji.",
+        "r":"Istnieje ale tylko wtedy gdy jej strony są spokrewnione np. brat i siostra, kuzyn i kuzynka."
+    },
+    {
+        "q":"6. Seks w związku to:",
+        "c":"Dodatek, ważny, ale dodatek. Najważniejsze jest mieć drugą połówkę, przed którą można otworzyć swoje serce, spędzać razem czas i cieszyć się jej obecnością.",
+        "b":"Fundament związku, jeśli zanika namiętność to znaczy, że związek najprawdopodobniej wkrótce się rozpadnie. Być może druga strona ma już kogoś innego na oku.",
+        "r":"Bardzo ważna część związku, która go jednoczy. Brak seksu może być sygnałem, że coś należy razem przepracować i poszukać rozwiązania."
+    },
+    {
+        "q":"7. Na bezludną wyspę zabrałbym ze sobą:",
+        "c":"Książki, dużo książek.",
+        "r":"Pakiet preppersa (scyzoryk, krzesiwo, leki).",
+        "b":"Papierosy, alkohol i inne używki"
+    },
+    {
+        "q":"8. Twoja koleżanka, która jest samotną matką poprosiła Cię o pomoc w przeprowadzce, a Ty masz już zaplanowany czas wieczorem, co robisz?",
+        "b": "Coś czuję, że dzieciak przeszkodzi mi w odebraniu późniejszej nagrody więc szkoda mojego poświęcenia",
+        "r": "Informuję ją, że nie dam rady jej pomóc z uwagi na to, że mam już plany",
+        "c": "Pomagam jej. Przeprowadzka to fizyczna praca, a wiadomo, że kobiety są słabsze od mężczyzn i taka sytuacja może ją przerosnąć."
+    },
+    {
+        "q": "9. Spodobała Ci się dziewczyna z Twojej firmy i chciałbyś bliżej ją poznać, ale nie znasz jej za dobrze, co robisz?",
+        "r": "Szukam naturalnej okazji do kontaktu, najlepiej przypadkowej żeby do niej zagadać i trochę lepiej ją poznać.Może z czasem uda się zaprosić ją na kawę.",
+        "b": "Sprawdzam jej facebook’a, jakie ma zainteresowania, poglądy, jak spędza wolny czas. Nie wiadomo czy skórka warta wyprawki.",
+        "c": "Uśmiecham się do niej za każdym razem kiedy ją widzę, zagaduję w wolnych chwilach i staram się na początek zaprzyjaźnić."
+    },
+    {
+        "q":"10. Bardziej romantyczną płcią mimo wszystko są:",
+        "c": "Kobiety.",
+        "b": "Mężczyzni.",
+        "r": "Romantyzm to domena obydwu płci."
+    },
+    {
+        "q": "11. Komedie romantyczne?",
+        "c": "Lubię je oglądać, świetnie się przy nich bawię.",
+        "r": "Większość jest słaba, ale niektóre są całkiem zabawne.",
+        "b": "To wymyślone bzdury, kobietom chodzi o seks z przystojnym facetem a nie romantyczną kolację przy świecach, no chyba, że z przystojnym facetem."
+    },
+    {
+        "q": "12. Kobiety osiągają sukcesy w życiu...",
+        "b":"Głównie powodu wyglądu. Im bardziej atrakcyjna kobieta tym większe szanse na sukces w różnych aspektach życia.",
+        "c":"Z powodu ciężkiej pracy, dobrego wykształcenia, siły woli i samozaparcia.",
+        "r":"Zazwyczaj jest to połączenie wyglądu, charakteru, pracy nad sobą i okoliczności."
+    },
+    {
+        "q":"13. Aplikacje randkowe to:",
+        "r":"Szansa na znalezienie drugiej połówki, choć nie jest to łatwe.",
+        "c":"Szansa na poznanie drugiej połówki lub znalezienie przyjaciółki/przyjaciela.",
+        "b":"Strata czasu, najprzystojniejsi zgarniają wszystko."
+    },
+    {
+        "q":"14. Dokończ zdanie. Mężczyźni to:",
+        "c":"Mężczyźni to silniejsza i uprzywilejowana płeć, dlatego kobiety ich potrzebują.",
+        "b":"Mężczyźni to silniejsza płeć, która bierze od życia to czego chce.",
+        "r":"Mężczyźni to silniejsza płeć, która zaczyna tracić swoją pozycję we współczesnym świecie."
+    },
+    {
+        "q":"15. Twoim zdaniem kobiety, które posiadały więcej partnerów seksualnych oraz miały niższy wiek inicjacji seksualnej mają",
+        "r":"...mniej stabilne małżeństwa oraz mniejsze zadowolenie ze związku i niższy poziom szczęścia.",
+        "c":"...bardziej stabilne małżeństwa, są bardziej pewne siebie w związku i odczuwają więcej zadowolenia w życiu.",
+        "b":"...natura kobiet jest hipergamiczna, dlatego jest to bez większego wpływu na życie danej kobiety."
+    },
+    {
+        "q":"16. Miłość to:",
+        "c":"Najwspanialsze uczucie na świecie. Prawdziwa miłość uskrzydla, daje siłę do bycia razem mimo wielu przeciwności losu.",
+        "b":"Nie istnieje, to określenie na chemiczne procesy i reakcje zachodzące w mózgu osoby zaangażowanej w związek.",
+        "r":"Decyzja. Emocje to jeden z elementów zakochania, jednak, w rzeczywistości miłość to pojęcie z powieści i komedii romantycznych."
     }
-
 ]
 

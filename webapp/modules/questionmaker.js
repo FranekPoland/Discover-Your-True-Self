@@ -1,10 +1,12 @@
 // import json from '../questions.json';
 
-
-
 import { storage } from "./storage.js";
 
-import json from "../jsons/questions.json" assert {
+import allQuestions from "../jsons/questions.json" assert {
+    type: 'json'
+};
+
+import lastQuestion from "../jsons/lastquestion.json" assert {
     type: 'json'
 };
 
@@ -19,7 +21,7 @@ btnNext.addEventListener('click', function (event) {
     applyQuestion2Object();
     clearInput();
     $('.btn-back').show();
-    if (storage.answers.length === json.length) {
+    if (storage.answers.length >= allQuestions.length) {
         $('#result').show();
         $('.btn-back').hide();
         $('.question-cointaner').hide();
@@ -50,7 +52,6 @@ var findQ1HtmlElems = function () {
     var i3 = document.getElementById('i3');
     arrOfElems.push(q, a1, a2, a3, i1, i2, i3);
     return arrOfElems;
-
 }
 
 
@@ -76,15 +77,32 @@ var fillHtmlElems = function (element, string) {
 
 var applyQuestion1Object = function () {
     var arr = findQ1HtmlElems();
-    getString(json[counter], arr);
+    getString(allQuestions[counter], arr);
 }
 
 var applyQuestion2Object = function () {
     var arr = findQ2HtmlElems();
     counter++;
-    getString(json[counter], arr);
+    getString(allQuestions[counter], arr);
 }
 
+
+
+var addLastQuestion = function (str1,str2) {
+    console.log('addquestion');
+    $('#q1').text(lastQuestion.q);
+    $('#a1').text(lastQuestion[str1]);
+    $('#a2').text(lastQuestion[str2]);
+    $('.question-cointaner').show();
+    $('.btn-next').show();
+    $('#result').hide();
+    $('#a3').hide();
+    $('#i3').hide();
+    $('.second-cointainer').hide();
+    console.log(lastQuestion);
+    addInputValue("i1", str1);
+    addInputValue("i2", str2);
+}
 
 var addInputValue = function (element, key) {
     $(element).val(key);
@@ -140,7 +158,9 @@ var saveAnswer = function () {
 }
 
 
+
 export {
+    addLastQuestion,
     initSurvey, 
     saveAnswer,
     clearInput,
