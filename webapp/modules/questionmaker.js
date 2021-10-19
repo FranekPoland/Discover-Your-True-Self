@@ -98,7 +98,7 @@ var addLastQuestion = function (str1,str2) {
     $('#result').hide();
     $('#a3').hide();
     $('#i3').hide();
-    $('.second-cointainer').hide();
+    $('.second-container').hide();
     console.log(lastQuestion);
     addInputValue("i1", str1);
     addInputValue("i2", str2);
