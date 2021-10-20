@@ -1,4 +1,4 @@
-// TODO save name and password in local storage after clicking on login
+// TODO save name and password in local storage after clicking on login, eye should work
 
 var initLogin = function () {
     $('.btn-login').on('click', login);

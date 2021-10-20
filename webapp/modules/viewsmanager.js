@@ -9,7 +9,7 @@ var startApp = function () {
     $('.question-container').hide();
     $('.login').hide();
     btn1.addEventListener('click', function () {
-        var matrix = document.querySelector('.matrix');
+        var matrix = document.querySelector('.matrix'); // <-- do refactoryzacji?wywalenia
         $('.start-container').hide();
         $('.btncont').hide();
         $('.matrix').removeClass('matrix').addClass('matrix2');
