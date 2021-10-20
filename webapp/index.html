@@ -15,7 +15,7 @@
 </head>
 
 <body class="matrix">
-    
+
     <div class="container start-container">
         <h1>Poznaj siebie </h1>
 
@@ -26,44 +26,56 @@
         <a href="https://www.pudelek.pl/" type="button" class="btn btn-primary button2">Wolę śnić dalej</a>
     </div>
 
+    <div class="login">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Login</span>
+            <input type="text" class="form-control" id="username" placeholder="Username" required>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Hasło</span>
+            <input type="password" class="form-control" id="password" placeholder="Password" required>
+            <i class="fa fa-eye-slash" id="togglePassword"></i>
+        </div>
+            <a href="#" class="link-light register">REJESTRACJA</a>
+            <a href="#" class="link-light login-link hidden">LOGOWANIE</a>
+            <button class="btn btn-primary btn-login" type="button">Zaloguj</button>
+            <button class="btn btn-primary btn-register" type="button">Utwórz konto</button>
+    </div>
+
 
     <div class="chartcontainer container hidden">
-
         <div class="container px-4">
             <div class="row gx-5">
-              <div class="col">
-               <div class="p-1 border bg-light">
-                <div class="card">
-                    <img src="..." class="card-img-top" id="photo">
-                    <div class="card-body">
-                      <h5 class="card-title">Twój profil psychologiczny</h5>
-                      <p class="card-text" id="description"></p>
-                    </div>
-                    
-                    <div class="card-body">
-                      <a target="_blank" href="#" class="card-link link">Przeczytaj więcej</a>
-                    </div>
-                  </div>
-               </div>
-              </div>
-              <div class="col">
-                <div class="p-3 border bg-light">
-                    <div class="card" style="width: 18rem;">
-                        <canvas id="resultChart" width="400" height="400"></canvas>
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="col">
+                    <div class="p-1 border bg-light">
+                        <div class="card">
+                            <img src="..." class="card-img-top" id="photo">
+                            <div class="card-body">
+                                <h5 class="card-title">Twój profil psychologiczny</h5>
+                                <p class="card-text" id="description"></p>
+                            </div>
+
+                            <div class="card-body">
+                                <a target="_blank" href="#" class="card-link link">Przeczytaj więcej</a>
+                            </div>
                         </div>
-                      </div>
+                    </div>
                 </div>
-              </div>
+                <div class="col">
+                    <div class="p-3 border bg-light">
+                        <div class="card" style="width: 18rem;">
+                            <canvas id="resultChart" width="400" height="400"></canvas>
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-
-
-       
-          
+        </div>
     </div>
+
 
 
     <div class="question-container container">

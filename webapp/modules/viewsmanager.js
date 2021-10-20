@@ -1,21 +1,29 @@
 import {createChart} from "./resultdisplayer.js";
 import {getType, isValid} from "./analyzer.js";
-import {initSurvey} from './questionmaker.js';
+import {initLogin} from "./login.js";
 
 var result = document.getElementById('result');
 var btn1 = document.querySelector('.button1');
 
 var startApp = function () {
     $('.question-container').hide();
+    $('.login').hide();
     btn1.addEventListener('click', function () {
         var matrix = document.querySelector('.matrix');
         $('.start-container').hide();
         $('.btncont').hide();
-        $('.matrix').removeClass('matrix');
-        $('.question-container').show();
-        initSurvey();
+        $('.matrix').removeClass('matrix').addClass('matrix2');
+        $('.test').hide();
+        displayLogin();
+        initLogin();
+        // initSurvey(); 
+        // TODO add init after validation displayLogin
     }, false);
 }
+
+var displayLogin = function(){
+    $('.login').show();
+};
 
 $('input[type="radio"]').click(function () {
     if ($("input:checked").length === 2) {

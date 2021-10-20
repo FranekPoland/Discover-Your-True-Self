@@ -63,3 +63,24 @@ body {
     background-color: white;
 }
 
+.matrix2 {
+    background-image: url("./numbers.jpg");
+    background-repeat: no-repeat;
+    color: aliceblue;
+}
+
+.login {
+    /* background-color: white;
+    opacity: 0.8; */
+    height: 200px;
+    width: 400px;
+    margin-top: 30vh;
+    margin-left: 75vh;
+    padding: 20px;
+    border: 2px solid white; 
+    border-radius: 10px;
+}
+
+.btn-login, .btn-register {
+    float: right;
+}
