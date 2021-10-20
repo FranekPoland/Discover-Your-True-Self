@@ -12,6 +12,7 @@ import lastQuestion from "../jsons/lastquestion.json" assert {
 
 var btnNext = document.querySelector('.btn-next');
 var btnBack = document.querySelector('.btn-back');
+var counter = 0;
 
 
 btnNext.addEventListener('click', function (event) {
@@ -24,9 +25,10 @@ btnNext.addEventListener('click', function (event) {
     if (storage.answers.length >= allQuestions.length) {
         $('#result').show();
         $('.btn-back').hide();
-        $('.question-cointaner').hide();
+        $('.question-container').hide();
     }
 }, false);
+// TODO fix btn next display in connection with clearInput fn
 
 btnBack.addEventListener('click', function (event) {
     counter = counter -3;
@@ -40,7 +42,6 @@ btnBack.addEventListener('click', function (event) {
 
 
 
-var counter = 0;
 var findQ1HtmlElems = function () {
     var arrOfElems = [];
     var q = document.getElementById('q1');
@@ -78,30 +79,32 @@ var fillHtmlElems = function (element, string) {
 var applyQuestion1Object = function () {
     var arr = findQ1HtmlElems();
     getString(allQuestions[counter], arr);
+   
 }
 
 var applyQuestion2Object = function () {
     var arr = findQ2HtmlElems();
     counter++;
     getString(allQuestions[counter], arr);
+    
 }
 
 
 
 var addLastQuestion = function (str1,str2) {
-    console.log('addquestion');
     $('#q1').text(lastQuestion.q);
     $('#a1').text(lastQuestion[str1]);
     $('#a2').text(lastQuestion[str2]);
-    $('.question-cointaner').show();
-    $('.btn-next').show();
+    $('.question-container').show();
     $('#result').hide();
     $('#a3').hide();
     $('#i3').hide();
+    $('input[type="radio"]').on('click', function (){
+        $('.btn-next').show();
+    });
     $('.second-container').hide();
-    console.log(lastQuestion);
-    addInputValue("i1", str1);
-    addInputValue("i2", str2);
+    addInputValue('#i1', str1);
+    addInputValue('#i2', str2);
 }
 
 var addInputValue = function (element, key) {
@@ -131,8 +134,8 @@ var getString = function (object, arrOfElems) {
 var clearInput = function () {
     $('input[type="radio"]').each(function () {
         $(this).prop('checked', false);
+        $('.btn-next').hide();
     });
-    $('.btn-next').hide();
 }
 
 

@@ -6,13 +6,13 @@ var result = document.getElementById('result');
 var btn1 = document.querySelector('.button1');
 
 var startApp = function () {
-    $('.question-cointaner').hide();
+    $('.question-container').hide();
     btn1.addEventListener('click', function () {
         var matrix = document.querySelector('.matrix');
         $('.start-container').hide();
         $('.btncont').hide();
         $('.matrix').removeClass('matrix');
-        $('.question-cointaner').show();
+        $('.question-container').show();
         initSurvey();
     }, false);
 }
@@ -34,8 +34,6 @@ var getProfile = function() {
             $('#photo').attr("src", json.img);
             $('#description').text(json.description);
             $('.link').attr("href", json.link);
-            console.log(json, type);
-
         });
 
 }

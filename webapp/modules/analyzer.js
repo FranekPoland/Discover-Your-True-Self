@@ -12,7 +12,6 @@ import allQuestions from "../jsons/questions.json" assert {
 
 var getType = function () {
     var resultArr = getResult();
-    console.log(resultArr);
     var c, b, r;
     resultArr.forEach(function(result, i) {
         if (i === 0) {
@@ -73,20 +72,16 @@ function isValid() {
     var b = result[1];
     var r = result[2];
     if (c+b+r >= allQuestions.length) {
-        console.log(0)
         if (c===b && c > r) {
             addLastQuestion("c","b");
-            console.log(1)
             return false
         }
         if (c===r && c > b) {
             addLastQuestion("c","r");
-            console.log(2)
             return false
         }
         if (r===b && r > c) {
             addLastQuestion("r","b");
-            console.log(3)
             return false
         }
         
