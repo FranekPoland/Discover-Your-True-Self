@@ -16,26 +16,42 @@ function register() {
     var name = $('#username').val();
     var password = $('#password').val();
     console.log(name,password);
-    localStorage.setItem('name', name);
-    localStorage.setItem('password', password);
-    $('.login-link').show();
+    // $('.login-link').show();
     $('.register').hide();
+    $('.btn-register').hide();
+    $('.btn-login').show();
+    $.ajax({
+        method: "PUT",
+        url: 'https://discover-self-default-rtdb.europe-west1.firebasedatabase.app/users/' + name + '.json',
+        data: JSON.stringify({ 'password': password }),
+        dataType: "json"
+      }).done(function(resp) {
+          console.log(resp)
+        });
+    $('.notification').show();
 }
 
 function login() {
     var name = $('#username').val();
     var password = $('#password').val();
-    var storageName = localStorage.getItem('name');
-    var storagePass = localStorage.getItem('password');
-    if (storageName === name && storagePass === password) {
-
-        console.log('valid username');
-        console.log('valid password');
-    } else {
-        console.log('invalid data')
-    }
+    $('.notification').hide();
+    var users;
+    $.ajax({
+        method: "GET",
+        url: "https://discover-self-default-rtdb.europe-west1.firebasedatabase.app/users.json"
+    }).then(function( resp ) {
+        users = resp;
+        var isAuth = auth(users, name, password);
+        console.log('isAuth', isAuth)
+    }).fail(function(err) {
+        console.log('err', err)
+    });
+    
 }
 
+function auth(users, name, password) {
+    return users[name] ? users[name].password === password : false;
+}
 
 
 

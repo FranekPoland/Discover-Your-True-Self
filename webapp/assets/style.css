@@ -84,3 +84,8 @@ body {
 .btn-login, .btn-register {
     float: right;
 }
+
+.notification {
+    background: rgb(214, 10, 20);
+    color:black;
+}
