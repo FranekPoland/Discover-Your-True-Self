@@ -1,6 +1,6 @@
 import {createChart} from "./resultdisplayer.js";
 import {getType, isValid} from "./analyzer.js";
-import {initLogin} from "./login.js";
+import {initRegister} from "./login.js";
 
 var result = document.getElementById('result');
 var btn1 = document.querySelector('.button1');
@@ -15,7 +15,7 @@ var startApp = function () {
         $('.matrix').removeClass('matrix').addClass('matrix2');
         $('.test').hide();
         displayLogin();
-        initLogin();
+        initRegister();
         // initSurvey(); 
         // TODO add init after validation displayLogin
     }, false);

@@ -3,25 +3,31 @@
 var url = 'https://rocky-shore-64084.herokuapp.com/'
 var user = {}
 
-var initLogin = function () {
-    $('.btn-login').on('click', login);
-    $('.register').on('click', initRegister);
-    $('.btn-register').on('click', register);
-    $('.btn-register').hide();
-}
+
 var initRegister = function () {
-    $('.btn-register').show();
-    $('.btn-login').hide();
+    $('.log').on('click', toggleLogin);
+    $('.register').on('click', toggleLogin);
+    $('.btn-register').on('click', register);
+    $('.btn-login').on('click', login);
 }
+
+var toggleLogin = function () {
+    $('.log').toggle();
+    $('.btn-register').toggle();
+    $('.btn-login').toggle();
+    $('.register').toggle();
+}
+
+
 function register() {
     
     var name = $('#username').val();
     var password = $('#password').val();
     console.log(name, password);
     // $('.login-link').show();
-    $('.register').hide();
-    $('.btn-register').hide();
-    $('.btn-login').show();
+    // $('.register').hide();
+    // $('.btn-register').hide();
+    // $('.btn-login').show();
     url = url + 'register?&name=' + name + '&password=' + password;
     console.log('to jest url', url);
     $.ajax({
@@ -70,5 +76,5 @@ function auth(res) {
 
 
 export {
-    initLogin
+    initRegister,
 }
