@@ -1,6 +1,10 @@
 // TODO save name and password in local storage after clicking on login, eye should work
 
-var url = 'https://rocky-shore-64084.herokuapp.com/'
+import { initSurvey } from "./questionmaker.js";
+import { storage } from "./storage.js";
+
+var url = 'http://localhost:5000/'
+// var url = 'https://rocky-shore-64084.herokuapp.com/'
 var user = {}
 
 
@@ -45,33 +49,22 @@ function login() {
     var name = $('#username').val();
     var password = $('#password').val();
     $('.notification').hide();
-    var users;
     $.ajax({
         method: "POST",
         url: url + 'login?name=' + name + '&password=' + password
     }).then(function( resp ) {
-        console.log(resp);
-        users = resp;
-        var isAuth = auth(users, name, password);
-        console.log('isAuth', isAuth)
+        if (resp === 'OK') {
+            storage.user = name;
+            $('.login').hide();
+            $('.question-container').show();
+            $('.matrix2').removeClass('matrix2'); 
+            initSurvey();
+        }
     }).fail(function(err) {
         console.log('err', err)
     });
     
 }
-
-function auth(res) {
-    console.log(users);
-    return users[name] ? users[name].password === password : false;
-}
-
-
-
-
-
-
-
-
 
 
 
