@@ -10,7 +10,15 @@ var url = 'http://localhost:5000/'
 // var url = 'https://rocky-shore-64084.herokuapp.com/'
 
 var startApp = function () {
-    // pobierz token z ciasteczka
+    //f() pobierz token z ciasteczka
+    // if (isToken) { 
+//     getresult 
+//if result { show result} 
+    //} else {
+    //showTest
+    //}
+    // else {loginpage}
+
     $('.question-container').hide();
     $('.login').hide();
     btn1.addEventListener('click', function () {

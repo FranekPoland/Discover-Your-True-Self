@@ -52,8 +52,11 @@ function login() {
     $.ajax({
         method: "POST",
         url: url + 'login?name=' + name + '&password=' + password
-    }).then(function( resp ) {
-        if (resp === 'OK') {
+    }).then(function(resp, x, xhr ) {
+        if (resp.token) {
+            var token = resp.token;
+            console.log(xhr, token);
+            window.localStorage.setItem('token', token);
             storage.user = name;
             $('.login').hide();
             $('.question-container').show();
