@@ -28,16 +28,11 @@ function register() {
     var name = $('#username').val();
     var password = $('#password').val();
     console.log(name, password);
-    // $('.login-link').show();
-    // $('.register').hide();
-    // $('.btn-register').hide();
-    // $('.btn-login').show();
     url = url + 'register?&name=' + name + '&password=' + password;
     console.log('to jest url', url);
     $.ajax({
         method: "POST",
         url: url,
-        // data: JSON.stringify({ 'password': password }),
         dataType: "json"
       }).done(function(resp) {
           console.log(resp)

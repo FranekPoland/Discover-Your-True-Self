@@ -2,6 +2,7 @@ import {createChart} from "./resultdisplayer.js";
 import {getType, isValid} from "./analyzer.js";
 import {initRegister} from "./login.js";
 import {storage} from "./storage.js"
+import { initSurvey } from "./questionmaker.js";
 
 var result = document.getElementById('result');
 var btn1 = document.querySelector('.button1');
@@ -9,20 +10,31 @@ var btn1 = document.querySelector('.button1');
 var url = 'http://localhost:5000/'
 // var url = 'https://rocky-shore-64084.herokuapp.com/'
 
-var startApp = function () {
-    //f() pobierz token z ciasteczka
-    // if (isToken) { 
-//     getresult 
-//if result { show result} 
-    //} else {
-    //showTest
-    //}
-    // else {loginpage}
 
+function checkUser() {
+    var token = window.localStorage.getItem('token');
+    if (token) {
+        console.log('igottoken');
+        if (fetchProfile()) {
+            console.log('igotresult')
+            displayProfile();
+            $('.matrix').removeClass();
+            console.log('pokazprofil');
+        } else {
+           initSurvey();
+        }
+    } else { 
+        $('.login').show();
+    }
+}
+
+
+
+var startApp = function () {
+    checkUser();
     $('.question-container').hide();
     $('.login').hide();
     btn1.addEventListener('click', function () {
-        var matrix = document.querySelector('.matrix'); // <-- do refactoryzacji?wywalenia
         $('.start-container').hide();
         $('.btncont').hide();
         $('.matrix').removeClass('matrix').addClass('matrix2');
@@ -59,6 +71,24 @@ var getProfile = function() {
         });
 
 }
+
+var fetchProfile = function() {
+    return $.ajax({
+        method: "GET",
+        url: url + 'profile'
+    }).then(function(resp){
+        console.log('this is profile', resp);
+        storage.answers = resp.answers.split(",");
+        storage.result = resp.result;
+        if (resp.result) {
+        return true;
+        } else {
+            return false;
+        }
+    })
+}
+
+
 
 var displayProfile = function () {
     if (!isValid()) {
