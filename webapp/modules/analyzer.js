@@ -51,6 +51,7 @@ var getResult = function () {
     var b = 0;
     var r = 0;
 
+    console.log(storage.answers);
     storage.answers.forEach(function (ans) {
         if (ans === 'c') {
             c++;
@@ -58,10 +59,12 @@ var getResult = function () {
         if (ans === 'b') {
             b++;
         }
+        console.log(ans);
         if (ans === 'r') {
             r++;
         }
     });
+    console.log(c,b,r);
     return [c,b,r]
 };
 

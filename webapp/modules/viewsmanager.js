@@ -1,8 +1,19 @@
-import {createChart} from "./resultdisplayer.js";
-import {getType, isValid} from "./analyzer.js";
-import {initRegister} from "./login.js";
-import {storage} from "./storage.js"
-import { initSurvey } from "./questionmaker.js";
+import {
+    createChart
+} from "./resultdisplayer.js";
+import {
+    getType,
+    isValid
+} from "./analyzer.js";
+import {
+    initRegister
+} from "./login.js";
+import {
+    storage
+} from "./storage.js"
+import {
+    initSurvey
+} from "./questionmaker.js";
 
 var result = document.getElementById('result');
 var btn1 = document.querySelector('.button1');
@@ -15,15 +26,8 @@ function checkUser() {
     var token = window.localStorage.getItem('token');
     if (token) {
         console.log('igottoken');
-        if (fetchProfile()) {
-            console.log('igotresult')
-            displayProfile();
-            $('.matrix').removeClass();
-            console.log('pokazprofil');
-        } else {
-           initSurvey();
-        }
-    } else { 
+        fetchProfile();
+    } else {
         $('.login').show();
     }
 }
@@ -45,9 +49,10 @@ var startApp = function () {
     }, false);
 }
 
-var displayLogin = function(){
+var displayLogin = function () {
     $('.login').show();
 };
+
 
 $('input[type="radio"]').click(function () {
     if ($("input:checked").length === 2) {
@@ -55,57 +60,67 @@ $('input[type="radio"]').click(function () {
     }
 });
 
-var getProfile = function() {
+// getProfile from json (FE)
+var getProfile = function (updatedProfile) {
     var type = getType();
     storage.result = type;
-    var path = './jsons/'+type + '.json';
+    var path = './jsons/' + type + '.json';
     fetch(path)
-        .then( function(response) {
+        .then(function (response) {
             return response.json();
         })
-        .then(function(json) {
+        .then(function (json) {
             $('#photo').attr("src", json.img);
             $('#description').text(json.description);
             $('.link').attr("href", json.link);
-            updateProfile();
+            if (!updatedProfile) {
+                updateProfile();
+            }
         });
 
 }
 
-var fetchProfile = function() {
+
+// fetchProfile from backend
+var fetchProfile = function () {
     return $.ajax({
         method: "GET",
         url: url + 'profile'
-    }).then(function(resp){
+    }).then(function (resp) {
         console.log('this is profile', resp);
         storage.answers = resp.answers.split(",");
         storage.result = resp.result;
         if (resp.result) {
-        return true;
+            console.log('igotresult')
+            $('.matrix').removeClass();
+            $('.start-container').toggle();
+            $('.btncont').toggle();
+            displayProfile(true); //true because we have answers from backend
+            console.log('pokazprofil');
         } else {
-            return false;
+            initSurvey();
         }
     })
 }
 
 
 
-var displayProfile = function () {
+var displayProfile = function (updatedProfile) {
     if (!isValid()) {
         console.log('invalid')
         return;
     };
     createChart();
-    getProfile();
+    getProfile(updatedProfile);
     $('#result').hide();
     $('.chartcontainer').show();
-    
+
 }
 
-var updateProfile = function() {
+var updateProfile = function () {
     $.ajax({
         method: "POST",
-        url: url + 'profile', 
+        url: url + 'profile',
         data: {
             user: storage.user,
             answers: storage.answers.toString(),
@@ -118,5 +133,6 @@ var updateProfile = function() {
 result.addEventListener('click', displayProfile, false);
 
 export {
-    startApp
+    startApp,
+    checkUser
 }

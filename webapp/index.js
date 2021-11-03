@@ -7,9 +7,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 var globalReqHandler = function () {
     $.ajaxSetup({
         beforeSend: function(xhr) {
-            console.log('i add token')
             var token = window.localStorage.getItem('token');
+            if (token) {
             xhr.setRequestHeader('token', token);
+            }
         }
     });
 }

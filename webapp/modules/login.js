@@ -2,6 +2,7 @@
 
 import { initSurvey } from "./questionmaker.js";
 import { storage } from "./storage.js";
+import {checkUser} from "./viewsmanager.js";
 
 var url = 'http://localhost:5000/'
 // var url = 'https://rocky-shore-64084.herokuapp.com/'
@@ -9,6 +10,7 @@ var user = {}
 
 
 var initRegister = function () {
+    console.log('init register');
     $('.log').on('click', toggleLogin);
     $('.register').on('click', toggleLogin);
     $('.btn-register').on('click', register);
@@ -24,15 +26,14 @@ var toggleLogin = function () {
 
 
 function register() {
-    
+    console.log('register');
     var name = $('#username').val();
     var password = $('#password').val();
     console.log(name, password);
-    url = url + 'register?&name=' + name + '&password=' + password;
     console.log('to jest url', url);
     $.ajax({
         method: "POST",
-        url: url,
+        url: url + 'register?&name=' + name + '&password=' + password,
         dataType: "json"
       }).done(function(resp) {
           console.log(resp)
@@ -41,21 +42,26 @@ function register() {
 }
 
 function login() {
+    console.log('loguje się');
     var name = $('#username').val();
     var password = $('#password').val();
     $('.notification').hide();
     $.ajax({
         method: "POST",
         url: url + 'login?name=' + name + '&password=' + password
-    }).then(function(resp, x, xhr ) {
+    }).then(function(resp) {
         if (resp.token) {
             var token = resp.token;
-            console.log(xhr, token);
             window.localStorage.setItem('token', token);
             storage.user = name;
             $('.login').hide();
+            $('.matrix2').removeClass('matrix2');
+            checkUser();
+        } else {
+            console.log('jestem tu');
+            $('.login').hide();
+            $('.matrix2').removeClass('matrix2');
             $('.question-container').show();
-            $('.matrix2').removeClass('matrix2'); 
             initSurvey();
         }
     }).fail(function(err) {
