@@ -2,7 +2,7 @@
 
 import { initSurvey } from "./questionmaker.js";
 import { storage } from "./storage.js";
-import {checkUser} from "./viewsmanager.js";
+import {checkProfile} from "./viewsmanager.js";
 
 var url = 'http://localhost:5000/'
 // var url = 'https://rocky-shore-64084.herokuapp.com/'
@@ -56,18 +56,17 @@ function login() {
             storage.user = name;
             $('.login').hide();
             $('.matrix2').removeClass('matrix2');
-            checkUser();
+            checkProfile();
         } else {
-            console.log('jestem tu');
-            $('.login').hide();
-            $('.matrix2').removeClass('matrix2');
-            $('.question-container').show();
-            initSurvey();
+            // console.log('jestem tu');
+            // $('.login').hide();
+            // $('.matrix2').removeClass('matrix2');
+            // $('.question-container').show();
+            // initSurvey();
         }
     }).fail(function(err) {
         console.log('err', err)
     });
-    
 }
 
 

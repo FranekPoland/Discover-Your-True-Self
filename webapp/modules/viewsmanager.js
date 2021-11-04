@@ -17,41 +17,68 @@ import {
 
 var result = document.getElementById('result');
 var btn1 = document.querySelector('.button1');
+var btnlogout = document.querySelector('.btn-logout');
 
 var url = 'http://localhost:5000/'
 // var url = 'https://rocky-shore-64084.herokuapp.com/'
+var isNewUser = true;
+
+var showSurvey = function() {
+    initSurvey();
+    $('.question-container').show();
+    $('.login').hide();
+    $('.matrix2').removeClass('matrix2');
+}
+
+var hideLandingPage = function() {
+    $('.landing-page').hide();
+    $('.matrix').removeClass('matrix');
+}
+
+var displayLogin = function () {
+    $('.start-container').hide();
+        $('.btncont').hide();
+        $('.matrix').removeClass('matrix').addClass('matrix2');
+    $('.login').show();
+};
 
 
-function checkUser() {
+// function checkUser() {
+//     var token = window.localStorage.getItem('token');
+//     if (token) {
+//         console.log('igottoken');
+//         fetchProfile();
+//     } else {
+//         $('.login').show();
+//     }
+// }
+
+
+function checkToken() {
     var token = window.localStorage.getItem('token');
     if (token) {
         console.log('igottoken');
-        fetchProfile();
-    } else {
+        checkProfile();
+    } else
+    {
+        console.log('pokaz logoowanie');    
         $('.login').show();
     }
 }
 
 
-
 var startApp = function () {
-    checkUser();
+    // checkUser();
+    checkToken();
     $('.question-container').hide();
-    $('.login').hide();
+    $('.login').hide(); // viewsmanager 64 bug
     btn1.addEventListener('click', function () {
-        $('.start-container').hide();
-        $('.btncont').hide();
-        $('.matrix').removeClass('matrix').addClass('matrix2');
         displayLogin();
         initRegister();
         // initSurvey(); 
         // TODO add init after validation displayLogin
     }, false);
 }
-
-var displayLogin = function () {
-    $('.login').show();
-};
 
 
 $('input[type="radio"]').click(function () {
@@ -61,7 +88,7 @@ $('input[type="radio"]').click(function () {
 });
 
 // getProfile from json (FE)
-var getProfile = function (updatedProfile) {
+var getProfile = function () {
     var type = getType();
     storage.result = type;
     var path = './jsons/' + type + '.json';
@@ -73,7 +100,8 @@ var getProfile = function (updatedProfile) {
             $('#photo').attr("src", json.img);
             $('#description').text(json.description);
             $('.link').attr("href", json.link);
-            if (!updatedProfile) {
+            if (isNewUser) {
+                console.log('update');
                 updateProfile();
             }
         });
@@ -81,46 +109,49 @@ var getProfile = function (updatedProfile) {
 }
 
 
-// fetchProfile from backend
-var fetchProfile = function () {
+// checkProfile and display it from backend otherwise show survery
+var checkProfile = function () {
     return $.ajax({
         method: "GET",
         url: url + 'profile'
     }).then(function (resp) {
-        console.log('this is profile', resp);
-        storage.answers = resp.answers.split(",");
-        storage.result = resp.result;
-        if (resp.result) {
-            console.log('igotresult')
-            $('.matrix').removeClass();
+        if (resp){
+            storage.answers = resp.answers.split(",");
+            storage.result = resp.result;
+        }
+        var isResult = resp ? true : false   
+        if (isResult) {
+            $('.matrix').removeClass('.matrix');
             $('.start-container').toggle();
-            $('.btncont').toggle();
-            displayProfile(true); //true because we have answers from backend
-            console.log('pokazprofil');
+            // $('.btncont').toggle();
+            $('.landing-page').hide();
+            isNewUser = false;
+            displayProfile(); //true because we have answers from backend
         } else {
-            initSurvey();
+            showSurvey();
+            hideLandingPage();
         }
     })
 }
 
 
-
-var displayProfile = function (updatedProfile) {
+var displayProfile = function () {
     if (!isValid()) {
         console.log('invalid')
         return;
     };
+    console.log(storage, 'dispprof');
     createChart();
-    getProfile(updatedProfile);
+    getProfile();
     $('#result').hide();
     $('.chartcontainer').show();
-
 }
 
 var updateProfile = function () {
+    console.log(storage);
     $.ajax({
         method: "POST",
-        url: url + 'profile',
+        url: url +'profile',
         data: {
             user: storage.user,
             answers: storage.answers.toString(),
@@ -129,10 +160,18 @@ var updateProfile = function () {
     })
 }
 
+function logout() {
+    storage.user = '';
+    storage.answers = '';
+    storage.result = '';
+    window.localStorage.setItem('token', null);
+    window.location.reload();
+}
 
 result.addEventListener('click', displayProfile, false);
+btnlogout.addEventListener('click', logout, false);
 
 export {
     startApp,
-    checkUser
+    checkProfile
 }
