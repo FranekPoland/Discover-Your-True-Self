@@ -28,11 +28,14 @@ var showSurvey = function() {
     $('.question-container').show();
     $('.login').hide();
     $('.matrix2').removeClass('matrix2');
+    $('body').removeClass('matrix');
+    $('.navbar').show();
 }
 
 var hideLandingPage = function() {
     $('.landing-page').hide();
     $('.matrix').removeClass('matrix');
+    $('.navbar').show();
 }
 
 var displayLogin = function () {
@@ -59,8 +62,7 @@ function checkToken() {
     if (token) {
         console.log('igottoken');
         checkProfile();
-    } else
-    {
+    } else {
         console.log('pokaz logoowanie');    
         $('.login').show();
     }
@@ -68,10 +70,10 @@ function checkToken() {
 
 
 var startApp = function () {
-    // checkUser();
+    $('body').addClass('matrix');
     checkToken();
     $('.question-container').hide();
-    $('.login').hide(); // viewsmanager 64 bug
+    $('.login').hide(); 
     btn1.addEventListener('click', function () {
         displayLogin();
         initRegister();
@@ -115,15 +117,12 @@ var checkProfile = function () {
         method: "GET",
         url: url + 'profile'
     }).then(function (resp) {
+        console.log('resp', resp);
         if (resp){
             storage.answers = resp.answers.split(",");
             storage.result = resp.result;
-        }
-        var isResult = resp ? true : false   
-        if (isResult) {
             $('.matrix').removeClass('.matrix');
             $('.start-container').toggle();
-            // $('.btncont').toggle();
             $('.landing-page').hide();
             isNewUser = false;
             displayProfile(); //true because we have answers from backend
@@ -136,6 +135,8 @@ var checkProfile = function () {
 
 
 var displayProfile = function () {
+    $('.matrix').removeClass('matrix');
+    $('.navbar').show();
     if (!isValid()) {
         console.log('invalid')
         return;

@@ -57,12 +57,8 @@ function login() {
             $('.login').hide();
             $('.matrix2').removeClass('matrix2');
             checkProfile();
-        } else {
-            // console.log('jestem tu');
-            // $('.login').hide();
-            // $('.matrix2').removeClass('matrix2');
-            // $('.question-container').show();
-            // initSurvey();
+            $('.navbar').show();
+            $('.user').html(name);
         }
     }).fail(function(err) {
         console.log('err', err)
