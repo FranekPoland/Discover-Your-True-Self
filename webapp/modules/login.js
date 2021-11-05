@@ -4,10 +4,8 @@ import { initSurvey } from "./questionmaker.js";
 import { storage } from "./storage.js";
 import {checkProfile} from "./viewsmanager.js";
 
-var url = 'http://localhost:5000/'
-// var url = 'https://rocky-shore-64084.herokuapp.com/'
-var user = {}
-
+// var url = 'http://localhost:5000/';
+var url = 'https://rocky-shore-64084.herokuapp.com/'
 
 var initRegister = function () {
     console.log('init register');
@@ -24,13 +22,9 @@ var toggleLogin = function () {
     $('.register').toggle();
 }
 
-
 function register() {
-    console.log('register');
     var name = $('#username').val();
     var password = $('#password').val();
-    console.log(name, password);
-    console.log('to jest url', url);
     $.ajax({
         method: "POST",
         url: url + 'register?&name=' + name + '&password=' + password,
@@ -42,7 +36,6 @@ function register() {
 }
 
 function login() {
-    console.log('loguje się');
     var name = $('#username').val();
     var password = $('#password').val();
     $('.notification').hide();
@@ -68,8 +61,6 @@ function login() {
         console.log('err', err)
     });
 }
-
-
 
 export {
     initRegister,
