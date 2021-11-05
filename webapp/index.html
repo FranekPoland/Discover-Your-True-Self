@@ -11,21 +11,77 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link rel="stylesheet" href="assets/style.css" />
+    <script src="../node_modules/chart.js/dist/Chart.js"></script>
 </head>
 
 <body class="matrix">
+    <button class="btn btn-logout btn-danger"></button>
 
-    <div class="container start-container">
-        <h1>Poznaj siebie </h1>
+    <div class="landing-page">
+        <div class="container start-container">
+            <h1>Poznaj siebie </h1>
 
-        <span>Czy jesteś gotowy poznać prawdę?</span>
+            <span>Czy jesteś gotowy poznać prawdę?</span>
+        </div>
+        <div class="btncont">
+            <button type="button" class="btn btn-primary button1">Zacznij podróż</button>
+            <a href="https://www.pudelek.pl/" type="button" class="btn btn-primary button2">Wolę śnić dalej</a>
+        </div>
     </div>
-    <div class="btncont">
-        <button type="button" class="btn btn-primary button1">Zacznij podróż</button>
-        <a href="https://www.pudelek.pl/" type="button" class="btn btn-primary button2">Wolę śnić dalej</a>
+
+    <div class="login">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Login</span>
+            <input type="text" class="form-control" id="username" placeholder="Username" required>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Hasło</span>
+            <input type="password" class="form-control" id="password" placeholder="Password" required>
+            <i class="fa fa-eye-slash" id="togglePassword"></i>
+        </div>
+        <a href="#" class="link-light hidden register">REJESTRACJA</a>
+        <a href="#" class="link-light log">LOGOWANIE</a>
+        <div class="link-light notification hidden feedback">Twoje konto zostało utworzone, zaloguj się</div>
+        <button class="btn btn-primary hidden btn-login" type="button">Zaloguj</button>
+        <button class="btn btn-primary btn-register" type="button">Utwórz konto</button>
     </div>
 
-    <div class="question-cointaner container">
+    <div class="chartcontainer container hidden">
+        <div class="container px-4">
+            <div class="row gx-5">
+                <div class="col">
+                    <div class="p-1 border bg-light">
+                        <div class="card">
+                            <img class="card-img-top" id="photo">
+                            <div class="card-body">
+                                <h5 class="card-title">Twój profil psychologiczny</h5>
+                                <p class="card-text" id="description"></p>
+                            </div>
+
+                            <div class="card-body">
+                                <a target="_blank" href="#" class="card-link link">Przeczytaj więcej</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3 border bg-light">
+                        <div class="card" style="width: 18rem;">
+                            <canvas id="resultChart" width="400" height="400"></canvas>
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="question-container container">
         <div class="container">
             <div class="question">
                 <div id="q1" class="form-check-label"></div>
@@ -45,7 +101,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="question">
+            <div class="question second-container">
                 <div id="q2" class="form-check-label"></div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="answer2" id="i4">

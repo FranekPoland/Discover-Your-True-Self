@@ -1,14 +1,47 @@
 // import json from '../questions.json';
 
-import { saveAnswer } from './analyzer.js';
-
 import { storage } from "./storage.js";
 
-import json from "../questions.json" assert {
+import allQuestions from "../jsons/questions.json" assert {
     type: 'json'
 };
 
+import lastQuestion from "../jsons/lastquestion.json" assert {
+    type: 'json'
+};
+
+var btnNext = document.querySelector('.btn-next');
+var btnBack = document.querySelector('.btn-back');
 var counter = 0;
+
+
+btnNext.addEventListener('click', function (event) {
+    saveAnswer();
+    counter++;
+    applyQuestion1Object();
+    applyQuestion2Object();
+    clearInput();
+    $('.btn-back').show();
+    if (storage.answers.length >= allQuestions.length) {
+        $('#result').show();
+        $('.btn-back').hide();
+        $('.question-container').hide();
+    }
+}, false);
+// TODO fix btn next display in connection with clearInput fn
+
+btnBack.addEventListener('click', function (event) {
+    counter = counter -3;
+    applyQuestion1Object();
+    applyQuestion2Object();
+    var value1 = storage.answers.pop();
+    var value2 = storage.answers.pop();
+    fillInputs(value1, value2);
+    $('.btn-next').show();
+}, false);
+
+
+
 var findQ1HtmlElems = function () {
     var arrOfElems = [];
     var q = document.getElementById('q1');
@@ -20,7 +53,6 @@ var findQ1HtmlElems = function () {
     var i3 = document.getElementById('i3');
     arrOfElems.push(q, a1, a2, a3, i1, i2, i3);
     return arrOfElems;
-
 }
 
 
@@ -46,15 +78,34 @@ var fillHtmlElems = function (element, string) {
 
 var applyQuestion1Object = function () {
     var arr = findQ1HtmlElems();
-    getString(json[counter], arr);
+    getString(allQuestions[counter], arr);
+   
 }
 
 var applyQuestion2Object = function () {
     var arr = findQ2HtmlElems();
     counter++;
-    getString(json[counter], arr);
+    getString(allQuestions[counter], arr);
+    
 }
 
+
+
+var addLastQuestion = function (str1,str2) {
+    $('#q1').text(lastQuestion.q);
+    $('#a1').text(lastQuestion[str1]);
+    $('#a2').text(lastQuestion[str2]);
+    $('.question-container').show();
+    $('#result').hide();
+    $('#a3').hide();
+    $('#i3').hide();
+    $('input[type="radio"]').on('click', function (){
+        $('.btn-next').show();
+    });
+    $('.second-container').hide();
+    addInputValue('#i1', str1);
+    addInputValue('#i2', str2);
+}
 
 var addInputValue = function (element, key) {
     $(element).val(key);
@@ -83,35 +134,11 @@ var getString = function (object, arrOfElems) {
 var clearInput = function () {
     $('input[type="radio"]').each(function () {
         $(this).prop('checked', false);
+        $('.btn-next').hide();
     });
-    $('.btn-next').hide();
 }
 
-var btnNext = document.querySelector('.btn-next');
-btnNext.addEventListener('click', function (event) {
-    saveAnswer();
-    counter++;
-    applyQuestion1Object();
-    applyQuestion2Object();
-    clearInput();
-    $('.btn-back').show();
-    if (storage.answers.length === json.length) {
-        $('#result').show();
-        $('.btn-back').hide();
-        $('.question-cointaner').hide();
-    }
-}, false);
 
-var btnBack = document.querySelector('.btn-back');
-btnBack.addEventListener('click', function (event) {
-    counter = counter -3;
-    applyQuestion1Object();
-    applyQuestion2Object();
-    var value1 = storage.answers.pop();
-    var value2 = storage.answers.pop();
-    fillInputs(value1, value2);
-    $('.btn-next').show();
-}, false);
 
 var fillInputs = function(value1, value2) {
     $('input[value='+value1+']').prop('checked', true);
@@ -120,11 +147,25 @@ var fillInputs = function(value1, value2) {
 
 
 var initSurvey = function () {
-    console.log('init');
     applyQuestion1Object();
     applyQuestion2Object();
 }
 
+var saveAnswer = function () {
+    var inputs = document.querySelectorAll('input[type="radio"]');
+    inputs.forEach(function (input) {
+        if (input.checked) {
+            storage.answers.push(input.value);
+        }
+    });
+}
+
+
+
 export {
-    initSurvey
+    addLastQuestion,
+    initSurvey, 
+    saveAnswer,
+    clearInput,
+    fillInputs
 };

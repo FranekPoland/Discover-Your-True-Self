@@ -2,20 +2,29 @@ import {
     storage
 } from "./storage.js";
 
-var result = document.getElementById('result');
+import {addLastQuestion} from "./questionmaker.js";
 
-var saveAnswer = function () {
-    var inputs = document.querySelectorAll('input[type="radio"]');
-    inputs.forEach(function (input) {
-        if (input.checked) {
-            storage.answers.push(input.value);
+import allQuestions from "../jsons/questions.json" assert {
+    type: 'json'
+};
+
+
+
+var getType = function () {
+    var resultArr = getResult();
+    var c, b, r;
+    resultArr.forEach(function(result, i) {
+        if (i === 0) {
+            c = result;
+        }
+        if (i === 1) {
+            b = result;
+        }
+        if (i === 2) {
+            r = result;
         }
     });
 
-    console.log(storage);
-}
-
-var getHighestScore = function (c, b, r) {
     var type = '';
 
     if (b > c) {
@@ -42,6 +51,7 @@ var getResult = function () {
     var b = 0;
     var r = 0;
 
+    console.log(storage.answers);
     storage.answers.forEach(function (ans) {
         if (ans === 'c') {
             c++;
@@ -49,22 +59,45 @@ var getResult = function () {
         if (ans === 'b') {
             b++;
         }
+        console.log(ans);
         if (ans === 'r') {
             r++;
         }
     });
+    console.log(c,b,r);
+    return [c,b,r]
+};
 
-    var type = getHighestScore(c, b, r);
-    console.log('c', c, 'b', b, 'r', r, type);
-    var result = 'Gratuluje jesteś zwycięzcą: ' + type;
-    $('#my-result').text(result).show();
+
+function isValid() {
+    var result = getResult();
+    var c = result[0];
+    var b = result[1];
+    var r = result[2];
+    if (c+b+r >= allQuestions.length) {
+        if (c===b && c > r) {
+            addLastQuestion("c","b");
+            return false
+        }
+        if (c===r && c > b) {
+            addLastQuestion("c","r");
+            return false
+        }
+        if (r===b && r > c) {
+            addLastQuestion("r","b");
+            return false
+        }
+        
+    }
+    return true;
 }
 
 
 
-result.addEventListener('click', getResult, false);
 
 
 export {
-    saveAnswer
+    getResult,
+    getType,
+    isValid
 }
