@@ -38,7 +38,7 @@ function register() {
       }).done(function(resp) {
           console.log(resp)
         });
-    $('.notification').show();
+    $('.notification').show(); // fix (by adding new) display notification if error occurs
 }
 
 function login() {
@@ -54,6 +54,7 @@ function login() {
             var token = resp.token;
             window.localStorage.setItem('token', token);
             storage.user = name;
+            console.log(name);
             $('.login').hide();
             $('.matrix2').removeClass('matrix2');
             checkProfile();

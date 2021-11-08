@@ -29,7 +29,7 @@ var showSurvey = function() {
     $('.login').hide();
     $('.matrix2').removeClass('matrix2');
     $('body').removeClass('matrix');
-    $('.navbar').show();
+    $('.navbar').show(); 
 }
 
 var hideLandingPage = function() {
@@ -62,6 +62,7 @@ function checkToken() {
     if (token) {
         console.log('igottoken');
         checkProfile();
+        // $('.user').html(name);
     } else {
         console.log('pokaz logoowanie');    
         $('.login').show();
@@ -127,7 +128,7 @@ var checkProfile = function () {
             isNewUser = false;
             displayProfile(); //true because we have answers from backend
         } else {
-            showSurvey();
+            showSurvey(); 
             hideLandingPage();
         }
     })
