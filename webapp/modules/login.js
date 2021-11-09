@@ -1,6 +1,5 @@
 // TODO save name and password in local storage after clicking on login, eye should work
 
-import { initSurvey } from "./questionmaker.js";
 import { storage } from "./storage.js";
 import {checkProfile} from "./viewsmanager.js";
 
@@ -53,7 +52,8 @@ function login() {
         if (resp.token) {
             var token = resp.token;
             window.localStorage.setItem('token', token);
-            storage.user = name;
+            window.localStorage.setItem('name', name);
+            // storage.user = name;
             console.log(name);
             $('.login').hide();
             $('.matrix2').removeClass('matrix2');

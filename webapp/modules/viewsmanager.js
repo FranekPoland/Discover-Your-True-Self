@@ -46,25 +46,17 @@ var displayLogin = function () {
 };
 
 
-// function checkUser() {
-//     var token = window.localStorage.getItem('token');
-//     if (token) {
-//         console.log('igottoken');
-//         fetchProfile();
-//     } else {
-//         $('.login').show();
-//     }
-// }
 
 
 function checkToken() {
     var token = window.localStorage.getItem('token');
+    var name = window.localStorage.getItem('name');
     if (token) {
-        console.log('igottoken');
+        console.log('igottoken', token);
         checkProfile();
-        // $('.user').html(name);
+        $('.user').html(name);
     } else {
-        console.log('pokaz logoowanie');    
+        console.log('pokaz logowanie');    
         $('.login').show();
     }
 }
@@ -167,6 +159,7 @@ function logout() {
     storage.answers = '';
     storage.result = '';
     window.localStorage.setItem('token', null);
+    window.localStorage.setItem('name', null);
     window.location.reload();
 }
 
