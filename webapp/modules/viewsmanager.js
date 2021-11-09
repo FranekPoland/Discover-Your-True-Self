@@ -145,7 +145,7 @@ var updateProfile = function () {
         method: "POST",
         url: url +'profile',
         data: {
-            user: storage.user,
+            user: window.localStorage.getItem('name'),
             answers: storage.answers.toString(),
             result: storage.result
         }
