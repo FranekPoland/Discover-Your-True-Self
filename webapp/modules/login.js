@@ -4,8 +4,8 @@ import { initSurvey } from "./questionmaker.js";
 import { storage } from "./storage.js";
 import {checkProfile} from "./viewsmanager.js";
 
-// var url = 'http://localhost:5000/';
-var url = 'https://rocky-shore-64084.herokuapp.com/'
+var url = 'http://localhost:5000/';
+// var url = 'https://rocky-shore-64084.herokuapp.com/'
 
 var initRegister = function () {
     console.log('init register');
