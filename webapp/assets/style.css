@@ -112,3 +112,9 @@ body {
     background: rgb(214, 10, 20);
     color:black;
 }
+
+.eye {
+    cursor: pointer;
+    background-color: rgb(63, 97, 41);
+    border-radius: 10px;
+}
