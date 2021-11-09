@@ -50,9 +50,9 @@ function login() {
             console.log(name);
             $('.login').hide();
             $('.matrix2').removeClass('matrix2');
-            checkProfile();
             $('.navbar').show();
             $('.user').html(name);
+            checkProfile();
         }
     }).fail(function(err) {
         console.log('err', err)

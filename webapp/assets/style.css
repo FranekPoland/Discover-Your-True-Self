@@ -112,3 +112,7 @@ body {
     background: rgb(214, 10, 20);
     color:black;
 }
+
+.admin-info {
+    padding: 20px;
+}

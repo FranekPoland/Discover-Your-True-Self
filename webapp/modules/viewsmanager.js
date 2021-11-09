@@ -15,10 +15,13 @@ import {
     initSurvey
 } from "./questionmaker.js";
 
+import {getAdminResult} from "./adminPanel.js"
+
+
 var result = document.getElementById('result');
 var btn1 = document.querySelector('.button1');
 var btnlogout = document.querySelector('.btn-logout');
-
+var adminPanelBtn = document.querySelector('.btn-admin');
 var url = 'http://localhost:5000/'
 // var url = 'https://rocky-shore-64084.herokuapp.com/'
 var isNewUser = true;
@@ -45,9 +48,6 @@ var displayLogin = function () {
     $('.login').show();
 };
 
-
-
-
 function checkToken() {
     var token = window.localStorage.getItem('token');
     var name = window.localStorage.getItem('name');
@@ -61,7 +61,6 @@ function checkToken() {
     }
 }
 
-
 var startApp = function () {
     $('body').addClass('matrix');
     checkToken();
@@ -74,7 +73,6 @@ var startApp = function () {
         // TODO add init after validation displayLogin
     }, false);
 }
-
 
 $('input[type="radio"]').click(function () {
     if ($("input:checked").length === 2) {
@@ -165,6 +163,7 @@ function logout() {
 
 result.addEventListener('click', displayProfile, false);
 btnlogout.addEventListener('click', logout, false);
+adminPanelBtn.addEventListener('click', getAdminResult, false);
 
 export {
     startApp,
