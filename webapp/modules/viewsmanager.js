@@ -67,8 +67,6 @@ var startApp = function () {
     btn1.addEventListener('click', function () {
         displayLogin();
         initRegister();
-        // initSurvey(); 
-        // TODO add init after validation displayLogin
     }, false);
 }
 
@@ -112,7 +110,7 @@ var checkProfile = function () {
             $('.start-container').toggle();
             $('.landing-page').hide();
             isNewUser = false;
-            displayProfile(); //true because we have answers from backend
+            displayProfile();
         } else {
             showSurvey(); 
             hideLandingPage();

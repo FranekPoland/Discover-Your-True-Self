@@ -9,7 +9,6 @@ import allQuestions from "../jsons/questions.json" assert {
 };
 
 
-
 var getType = function () {
     var resultArr = getResult();
     var c, b, r;
@@ -45,7 +44,6 @@ var getType = function () {
 
 }
 
-
 var getResult = function () {
     var c = 0;
     var b = 0;
@@ -64,7 +62,6 @@ var getResult = function () {
     });
     return [c,b,r]
 };
-
 
 function isValid() {
     var result = getResult();
@@ -88,9 +85,6 @@ function isValid() {
     }
     return true;
 }
-
-
-
 
 
 export {

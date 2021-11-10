@@ -1,6 +1,4 @@
 // TODO save name and password in local storage after clicking on login, eye should work
-
-import { storage } from "./storage.js";
 import {checkProfile} from "./viewsmanager.js";
 
 var url = 'http://localhost:5000/';
@@ -8,7 +6,6 @@ var url = 'http://localhost:5000/';
 
 $('#username').on('click', hideFeedBack);
 $('#password').on('click', hideFeedBack);
-
 
 var initRegister = function () {
     $('.log').on('click', toggleLogin);
@@ -43,7 +40,6 @@ function isValid() {
     return true
 }
 
-
 function register() {
     var name = $('#username').val();
     var password = $('#password').val();
@@ -60,7 +56,6 @@ function register() {
         });
         showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
 }
-
 
 function login() {
     var name = $('#username').val();
@@ -88,15 +83,3 @@ function login() {
 export {
     initRegister,
 }
-
-
-
-
-
-
-
-
-//Walidacja errorow
-
-//Login musi mieć co najmniej 3 znaki a password co najmniej 6 znaków
-//Twoje konto zostało utworzone, zaloguj się
