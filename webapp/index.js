@@ -18,7 +18,6 @@ var globalReqHandler = function () {
 var init = function () {
     globalReqHandler();
     startApp();
-    console.log('uruchomienie');
 }
 
 

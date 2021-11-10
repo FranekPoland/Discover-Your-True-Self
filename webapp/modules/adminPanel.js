@@ -1,10 +1,11 @@
 function getAdminResult() {
     var url = 'http://localhost:5000/';
     // var url = 'https://rocky-shore-64084.herokuapp.com/'
-    return $.ajax({
+     $.ajax({
         method: 'GET',
         url: url + 'allusers'
     }).then(function (resp) {
+        console.log('users', resp)
         var arr = readResult(resp)
         displayChart(arr);
     }).fail(function (err) {
@@ -18,8 +19,9 @@ function readResult(resp) {
     for (var i in resp) {
         var type = resp[i].profile ? resp[i].profile.result : undefined;
         if (type === undefined) continue;
-        type === 'redpill' ? r++ : type === 'blacpill' ? b++ : c++;
+        type === 'redpill' ? r++ : type === 'blackpill' ? b++ : c++;
     }
+    console.log(c, b, r)
     return [c, b, r];
 }
 
@@ -30,7 +32,7 @@ var displayChart = function (data) {
         data: {
             labels: ['Cuckold', 'Blackpill', 'Redpill'],
             datasets: [{
-                label: 'Udział procentowy profili osobowości użytkowników',
+                label: 'Users',
                 data: data,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
