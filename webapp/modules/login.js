@@ -4,8 +4,19 @@ import {checkProfile} from "./viewsmanager.js";
 var url = 'http://localhost:5000/';
 // var url = 'https://rocky-shore-64084.herokuapp.com/'
 
+
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
 $('#username').on('click', hideFeedBack);
 $('#password').on('click', hideFeedBack);
+
+togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye / eye slash icon
+    this.classList.toggle('bi-eye');
+});
 
 var initRegister = function () {
     $('.log').on('click', toggleLogin);
