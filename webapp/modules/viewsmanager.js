@@ -15,12 +15,15 @@ import {
     initSurvey
 } from "./questionmaker.js";
 
+import {getAdminResult} from "./adminPanel.js"
+
+
 var result = document.getElementById('result');
 var btn1 = document.querySelector('.button1');
 var btnlogout = document.querySelector('.btn-logout');
-
-var url = 'http://localhost:5000/'
-// var url = 'https://rocky-shore-64084.herokuapp.com/'
+var adminPanelBtn = document.querySelector('.btn-admin');
+// var url = 'http://localhost:5000/'
+var url = 'https://rocky-shore-64084.herokuapp.com/'
 var isNewUser = true;
 
 var showSurvey = function() {
@@ -28,11 +31,14 @@ var showSurvey = function() {
     $('.question-container').show();
     $('.login').hide();
     $('.matrix2').removeClass('matrix2');
+    $('body').removeClass('matrix');
+    $('.navbar').show(); 
 }
 
 var hideLandingPage = function() {
     $('.landing-page').hide();
     $('.matrix').removeClass('matrix');
+    $('.navbar').show();
 }
 
 var displayLogin = function () {
@@ -42,44 +48,27 @@ var displayLogin = function () {
     $('.login').show();
 };
 
-
-// function checkUser() {
-//     var token = window.localStorage.getItem('token');
-//     if (token) {
-//         console.log('igottoken');
-//         fetchProfile();
-//     } else {
-//         $('.login').show();
-//     }
-// }
-
-
 function checkToken() {
     var token = window.localStorage.getItem('token');
+    var name = window.localStorage.getItem('name');
     if (token) {
-        console.log('igottoken');
         checkProfile();
-    } else
-    {
-        console.log('pokaz logoowanie');    
+        $('.user').html(name);
+    } else {  
         $('.login').show();
     }
 }
 
-
 var startApp = function () {
-    // checkUser();
+    $('body').addClass('matrix');
     checkToken();
     $('.question-container').hide();
-    $('.login').hide(); // viewsmanager 64 bug
+    $('.login').hide(); 
     btn1.addEventListener('click', function () {
         displayLogin();
         initRegister();
-        // initSurvey(); 
-        // TODO add init after validation displayLogin
     }, false);
 }
-
 
 $('input[type="radio"]').click(function () {
     if ($("input:checked").length === 2) {
@@ -101,7 +90,6 @@ var getProfile = function () {
             $('#description').text(json.description);
             $('.link').attr("href", json.link);
             if (isNewUser) {
-                console.log('update');
                 updateProfile();
             }
         });
@@ -118,17 +106,13 @@ var checkProfile = function () {
         if (resp){
             storage.answers = resp.answers.split(",");
             storage.result = resp.result;
-        }
-        var isResult = resp ? true : false   
-        if (isResult) {
             $('.matrix').removeClass('.matrix');
             $('.start-container').toggle();
-            // $('.btncont').toggle();
             $('.landing-page').hide();
             isNewUser = false;
-            displayProfile(); //true because we have answers from backend
+            displayProfile();
         } else {
-            showSurvey();
+            showSurvey(); 
             hideLandingPage();
         }
     })
@@ -136,11 +120,11 @@ var checkProfile = function () {
 
 
 var displayProfile = function () {
+    $('.matrix').removeClass('matrix');
+    $('.navbar').show();
     if (!isValid()) {
-        console.log('invalid')
         return;
     };
-    console.log(storage, 'dispprof');
     createChart();
     getProfile();
     $('#result').hide();
@@ -148,12 +132,11 @@ var displayProfile = function () {
 }
 
 var updateProfile = function () {
-    console.log(storage);
     $.ajax({
         method: "POST",
         url: url +'profile',
         data: {
-            user: storage.user,
+            user: window.localStorage.getItem('name'),
             answers: storage.answers.toString(),
             result: storage.result
         }
@@ -165,11 +148,13 @@ function logout() {
     storage.answers = '';
     storage.result = '';
     window.localStorage.setItem('token', null);
+    window.localStorage.setItem('name', null);
     window.location.reload();
 }
 
 result.addEventListener('click', displayProfile, false);
 btnlogout.addEventListener('click', logout, false);
+adminPanelBtn.addEventListener('click', getAdminResult, false);
 
 export {
     startApp,

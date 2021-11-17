@@ -1,14 +1,20 @@
-// TODO save name and password in local storage after clicking on login, eye should work
-
-import { initSurvey } from "./questionmaker.js";
-import { storage } from "./storage.js";
 import {checkProfile} from "./viewsmanager.js";
 
 // var url = 'http://localhost:5000/';
 var url = 'https://rocky-shore-64084.herokuapp.com/'
 
+$('#username').on('click', hideFeedBack);
+$('#password').on('click', hideFeedBack);
+
+var togglePassword = document.querySelector('#eyebutton');
+var password = document.querySelector('#password');
+togglePassword.addEventListener('click', function (e) {
+    var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    $('#togglePassword').toggleClass('bi-eye-slash-fill').toggleClass('bi-eye');
+});
+
 var initRegister = function () {
-    console.log('init register');
     $('.log').on('click', toggleLogin);
     $('.register').on('click', toggleLogin);
     $('.btn-register').on('click', register);
@@ -22,17 +28,40 @@ var toggleLogin = function () {
     $('.register').toggle();
 }
 
+function hideFeedBack() {
+    $('.notification').text('');
+    $('.notification').hide();
+}
+
+function showFeedBack(msg) {
+    $('.notification').show().text(msg);
+}
+
+function isValid() {
+    var name = $('#username').val();
+    var password = $('#password').val();
+    if (name.length < 3 || password.length < 6) {
+        showFeedBack('Login musi mieć co najmniej 3 znaki a password co najmniej 6 znaków');
+        return false
+    }
+    return true
+}
+
 function register() {
     var name = $('#username').val();
     var password = $('#password').val();
-    $.ajax({
-        method: "POST",
-        url: url + 'register?&name=' + name + '&password=' + password,
-        dataType: "json"
-      }).done(function(resp) {
-          console.log(resp)
+    if (!isValid() ) {
+        return;
+    } 
+        $.ajax({
+            method: "POST",
+            url: url + 'register?&name=' + name + '&password=' + password,
+            dataType: "json"
+        }).done(function(resp) {
+            console.log(resp);
+            showFeedBack(resp);
         });
-    $('.notification').show();
+        showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
 }
 
 function login() {
@@ -46,19 +75,15 @@ function login() {
         if (resp.token) {
             var token = resp.token;
             window.localStorage.setItem('token', token);
-            storage.user = name;
+            window.localStorage.setItem('name', name);
             $('.login').hide();
             $('.matrix2').removeClass('matrix2');
+            $('.navbar').show();
+            $('.user').html(name);
             checkProfile();
-        } else {
-            // console.log('jestem tu');
-            // $('.login').hide();
-            // $('.matrix2').removeClass('matrix2');
-            // $('.question-container').show();
-            // initSurvey();
         }
     }).fail(function(err) {
-        console.log('err', err)
+        showFeedBack('Błędny login lub hasło');
     });
 }
 

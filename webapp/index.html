@@ -9,13 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link rel="stylesheet" href="assets/style.css" />
     <script src="../node_modules/chart.js/dist/Chart.js"></script>
 </head>
 
-<body class="matrix">
-    <button class="btn btn-logout btn-danger"></button>
+<body>
+    <header class="navbar hidden"><span>Logged as: </span><span class="user"></span>
+        <button class="btn btn-logout btn-warning">LOGOUT<span class="logouticon"></span></button>
+    </header>
+    
 
     <div class="landing-page">
         <div class="container start-container">
@@ -37,11 +41,11 @@
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Hasło</span>
             <input type="password" class="form-control" id="password" placeholder="Password" required>
-            <i class="fa fa-eye-slash" id="togglePassword"></i>
+            <button class="eye btn btn-secondary" id="eyebutton"><i class="bi bi-eye-slash-fill" id="togglePassword"></i></button>
         </div>
         <a href="#" class="link-light hidden register">REJESTRACJA</a>
         <a href="#" class="link-light log">LOGOWANIE</a>
-        <div class="link-light notification hidden feedback">Twoje konto zostało utworzone, zaloguj się</div>
+        <div class="link-light notification hidden feedback"></div>
         <button class="btn btn-primary hidden btn-login" type="button">Zaloguj</button>
         <button class="btn btn-primary btn-register" type="button">Utwórz konto</button>
     </div>
@@ -72,6 +76,11 @@
                                 <p class="card-text">Some quick example text to build on the card title and make up
                                     the bulk of the card's content.</p>
                             </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <div class="admin-info"></div>
+                            <canvas id="admin-panel" width="400" height="400"></canvas>
+                            <button class="btn btn-success btn-admin">Admin Panel</button>
                         </div>
                     </div>
                 </div>

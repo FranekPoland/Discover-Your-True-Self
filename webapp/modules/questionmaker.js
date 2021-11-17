@@ -1,5 +1,3 @@
-// import json from '../questions.json';
-
 import { storage } from "./storage.js";
 
 import allQuestions from "../jsons/questions.json" assert {
@@ -14,7 +12,6 @@ var btnNext = document.querySelector('.btn-next');
 var btnBack = document.querySelector('.btn-back');
 var counter = 0;
 
-
 btnNext.addEventListener('click', function (event) {
     saveAnswer();
     counter++;
@@ -28,7 +25,6 @@ btnNext.addEventListener('click', function (event) {
         $('.question-container').hide();
     }
 }, false);
-// TODO fix btn next display in connection with clearInput fn
 
 btnBack.addEventListener('click', function (event) {
     counter = counter -3;
@@ -39,8 +35,6 @@ btnBack.addEventListener('click', function (event) {
     fillInputs(value1, value2);
     $('.btn-next').show();
 }, false);
-
-
 
 var findQ1HtmlElems = function () {
     var arrOfElems = [];
@@ -55,8 +49,6 @@ var findQ1HtmlElems = function () {
     return arrOfElems;
 }
 
-
-
 var findQ2HtmlElems = function () {
     var arrOfElems = [];
     var question2 = document.getElementById('q2');
@@ -69,8 +61,6 @@ var findQ2HtmlElems = function () {
     arrOfElems.push(question2, a4, a5, a6, i1, i2, i3);
     return arrOfElems;
 }
-
-
 
 var fillHtmlElems = function (element, string) {
     element.innerText = string
@@ -88,8 +78,6 @@ var applyQuestion2Object = function () {
     getString(allQuestions[counter], arr);
     
 }
-
-
 
 var addLastQuestion = function (str1,str2) {
     $('#q1').text(lastQuestion.q);
@@ -111,7 +99,6 @@ var addInputValue = function (element, key) {
     $(element).val(key);
 }
 
-
 var getString = function (object, arrOfElems) {
     var str;
     var i = 0;
@@ -130,7 +117,6 @@ var getString = function (object, arrOfElems) {
 
 }
 
-
 var clearInput = function () {
     $('input[type="radio"]').each(function () {
         $(this).prop('checked', false);
@@ -138,13 +124,10 @@ var clearInput = function () {
     });
 }
 
-
-
 var fillInputs = function(value1, value2) {
     $('input[value='+value1+']').prop('checked', true);
     $('input[value='+value2+']').prop('checked', true);
 }
-
 
 var initSurvey = function () {
     applyQuestion1Object();
@@ -159,8 +142,6 @@ var saveAnswer = function () {
         }
     });
 }
-
-
 
 export {
     addLastQuestion,

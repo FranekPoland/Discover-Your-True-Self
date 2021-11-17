@@ -3,9 +3,8 @@ import { getResult } from "./analyzer.js";
 
 var createChart = function () {
 
-
     var ctx = document.getElementById('resultChart').getContext('2d');
-     new Chart(ctx, {
+    new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Cuckold', 'Blackpill', 'Redpill'],
