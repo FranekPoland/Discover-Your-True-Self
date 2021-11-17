@@ -25,7 +25,6 @@ btnNext.addEventListener('click', function (event) {
         $('.question-container').hide();
     }
 }, false);
-// TODO fix btn next display in connection with clearInput fn
 
 btnBack.addEventListener('click', function (event) {
     counter = counter -3;

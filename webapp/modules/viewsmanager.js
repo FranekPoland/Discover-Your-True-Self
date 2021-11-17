@@ -22,8 +22,8 @@ var result = document.getElementById('result');
 var btn1 = document.querySelector('.button1');
 var btnlogout = document.querySelector('.btn-logout');
 var adminPanelBtn = document.querySelector('.btn-admin');
-var url = 'http://localhost:5000/'
-// var url = 'https://rocky-shore-64084.herokuapp.com/'
+// var url = 'http://localhost:5000/'
+var url = 'https://rocky-shore-64084.herokuapp.com/'
 var isNewUser = true;
 
 var showSurvey = function() {

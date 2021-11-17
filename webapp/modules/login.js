@@ -1,21 +1,17 @@
-// TODO save name and password in local storage after clicking on login, eye should work
 import {checkProfile} from "./viewsmanager.js";
 
-var url = 'http://localhost:5000/';
-// var url = 'https://rocky-shore-64084.herokuapp.com/'
+// var url = 'http://localhost:5000/';
+var url = 'https://rocky-shore-64084.herokuapp.com/'
 
-
-const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#password');
 $('#username').on('click', hideFeedBack);
 $('#password').on('click', hideFeedBack);
 
+var togglePassword = document.querySelector('#eyebutton');
+var password = document.querySelector('#password');
 togglePassword.addEventListener('click', function (e) {
-    // toggle the type attribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
     password.setAttribute('type', type);
-    // toggle the eye / eye slash icon
-    this.classList.toggle('bi-eye');
+    $('#togglePassword').toggleClass('bi-eye-slash-fill').toggleClass('bi-eye');
 });
 
 var initRegister = function () {
