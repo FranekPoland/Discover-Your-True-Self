@@ -1,6 +1,6 @@
 function getAdminResult() {
-    var url = 'http://localhost:5000/';
-    // var url = 'https://rocky-shore-64084.herokuapp.com/'
+    // var url = 'http://localhost:5000/';
+    var url = 'https://rocky-shore-64084.herokuapp.com/'
      $.ajax({
         method: 'GET',
         url: url + 'allusers'
