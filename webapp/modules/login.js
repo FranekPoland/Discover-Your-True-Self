@@ -62,7 +62,7 @@ function register() {
         }).done(function(resp) {
             showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
 
-        }).faile(function(resp) {
+        }).fail(function(resp) {
             showFeedBack('Login zajęty, próbuj innego typie');
         });
 }
