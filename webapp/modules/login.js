@@ -60,10 +60,11 @@ function register() {
             url: url + 'register?&name=' + name + '&password=' + password,
             dataType: "json"
         }).done(function(resp) {
-            console.log(resp);
-            showFeedBack(resp);
+            showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
+
+        }).faile(function(resp) {
+            showFeedBack('Login zajęty, próbuj innego typie');
         });
-        showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
 }
 
 function login() {
