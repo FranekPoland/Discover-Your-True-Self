@@ -5,6 +5,8 @@ var url = 'https://rocky-shore-64084.herokuapp.com/'
 
 $('#username').on('click', hideFeedBack);
 $('#password').on('click', hideFeedBack);
+$('.log').on('click', hideFeedBack);
+$('.register').on('click', hideFeedBack);
 
 var togglePassword = document.querySelector('#eyebutton');
 var password = document.querySelector('#password');
