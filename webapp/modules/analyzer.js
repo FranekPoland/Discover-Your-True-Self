@@ -4,9 +4,7 @@ import {
 
 import {addLastQuestion} from "./questionmaker.js";
 
-import allQuestions from "../jsons/questions.json" assert {
-    type: 'json'
-};
+import allQuestions from "../jsons/questions.json" assert { type: 'json'};
 
 
 var getType = function () {
