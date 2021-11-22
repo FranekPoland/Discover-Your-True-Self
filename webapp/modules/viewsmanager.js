@@ -43,6 +43,7 @@ var hideLandingPage = function() {
 
 var displayLogin = function () {
     $('.start-container').hide();
+    $('.landing-page').hide();
         $('.btncont').hide();
         $('.matrix').removeClass('matrix').addClass('matrix2');
     $('.login').show();
