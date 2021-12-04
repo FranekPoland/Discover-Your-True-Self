@@ -59,7 +59,7 @@ function register() {
             method: "POST",
             url: url + 'register?&name=' + name + '&password=' + password,
             dataType: "json"
-        }).then(function(resp) {
+        }).done(function(resp) {
             showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
 
         }).fail(function(resp) {
