@@ -52,14 +52,14 @@ function isValidRegister() {
 function register() {
     var name = $('#username').val();
     var password = $('#password').val();
-    if (isValidRegister() ) {
+    if (!isValidRegister() ) {
         return;
     } 
         $.ajax({
             method: "POST",
             url: url + 'register?&name=' + name + '&password=' + password,
             dataType: "json"
-        }).done(function(resp) {
+        }).then(function(resp) {
             showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
 
         }).fail(function(resp) {
