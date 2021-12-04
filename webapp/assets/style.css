@@ -30,10 +30,6 @@ body {
     margin-bottom: 50px;
 }
 
-.hidden {
-    display: none;
-}
-
 .matrix {
     background-image: url("./morf.png");
     background-repeat: no-repeat;
@@ -41,7 +37,6 @@ body {
     background-position-y: center;
     color: aliceblue;
 }
-
 
 .btncont {
     margin-top: 2%;
@@ -115,4 +110,8 @@ body {
 
 .admin-info {
     padding: 20px;
+}
+
+.hidden {
+    display: none;
 }

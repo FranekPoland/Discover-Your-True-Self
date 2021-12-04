@@ -69,14 +69,12 @@ var fillHtmlElems = function (element, string) {
 var applyQuestion1Object = function () {
     var arr = findQ1HtmlElems();
     getString(allQuestions[counter], arr);
-   
 }
 
 var applyQuestion2Object = function () {
     var arr = findQ2HtmlElems();
     counter++;
     getString(allQuestions[counter], arr);
-    
 }
 
 var addLastQuestion = function (str1,str2) {

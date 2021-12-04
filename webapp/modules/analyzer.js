@@ -39,7 +39,6 @@ var getType = function () {
 
     }
     return type;
-
 }
 
 var getResult = function () {
