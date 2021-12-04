@@ -39,7 +39,7 @@ function showFeedBack(msg) {
     $('.notification').show().text(msg);
 }
 
-function isValid() {
+function isValidRegister() {
     var name = $('#username').val();
     var password = $('#password').val();
     if (name.length < 3 || password.length < 6) {
@@ -52,7 +52,7 @@ function isValid() {
 function register() {
     var name = $('#username').val();
     var password = $('#password').val();
-    if (!isValid() ) {
+    if (isValidRegister() ) {
         return;
     } 
         $.ajax({
