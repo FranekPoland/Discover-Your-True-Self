@@ -1,7 +1,7 @@
 import {checkProfile} from "./viewsmanager.js";
 
-// var url = 'http://localhost:5000/';
-var url = 'https://rocky-shore-64084.herokuapp.com/'
+var url = 'http://localhost:5000/';
+// var url = 'https://rocky-shore-64084.herokuapp.com/'
 
 $('#username').on('click', hideFeedBack);
 $('#password').on('click', hideFeedBack);
@@ -53,15 +53,17 @@ function register() {
     if (!isValid() ) {
         return;
     } 
-        $.ajax({
-            method: "POST",
-            url: url + 'register?&name=' + name + '&password=' + password,
-            dataType: "json"
-        }).done(function(resp) {
-            console.log(resp);
-            showFeedBack(resp);
-        });
-        showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
+    $.ajax({
+        method: "POST",
+        url: url + 'register?&name=' + name + '&password=' + password,
+    }).then(function(resp) {
+        if (resp === 'User was created') {
+            toggleLogin();
+            return showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
+        }
+    }).fail(function(err) {
+        if (err.responseText === 'This name is already used') return showFeedBack('Login zajęty, próbuj innego typie');
+    });
 }
 
 function login() {
