@@ -43,6 +43,7 @@ var hideLandingPage = function() {
 
 var displayLogin = function () {
     $('.start-container').hide();
+    $('.landing-page').hide();
         $('.btncont').hide();
         $('.matrix').removeClass('matrix').addClass('matrix2');
     $('.login').show();
@@ -89,6 +90,7 @@ var getProfile = function () {
             $('#photo').attr("src", json.img);
             $('#description').text(json.description);
             $('.link').attr("href", json.link);
+            $('.link2').attr("href", json.link2);
             if (isNewUser) {
                 updateProfile();
             }

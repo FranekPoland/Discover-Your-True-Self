@@ -5,6 +5,8 @@ var url = 'https://rocky-shore-64084.herokuapp.com/'
 
 $('#username').on('click', hideFeedBack);
 $('#password').on('click', hideFeedBack);
+$('.log').on('click', hideFeedBack);
+$('.register').on('click', hideFeedBack);
 
 var togglePassword = document.querySelector('#eyebutton');
 var password = document.querySelector('#password');
@@ -37,6 +39,7 @@ function showFeedBack(msg) {
     $('.notification').show().text(msg);
 }
 
+
 function isValid() {
     var name = $('#username').val();
     var password = $('#password').val();
@@ -64,6 +67,7 @@ function register() {
     }).fail(function(err) {
         if (err.responseText === 'This name is already used') return showFeedBack('Login zajęty, próbuj innego typie');
     });
+
 }
 
 function login() {

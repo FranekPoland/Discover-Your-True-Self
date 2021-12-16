@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link rel="stylesheet" href="assets/style.css" />
-    <script src="../node_modules/chart.js/dist/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <!-- <script type="text/javascript" src="jscript/graph.js"></script> -->
 </head>
 
 <body>
@@ -26,14 +27,15 @@
             <h1>Poznaj siebie </h1>
 
             <span>Czy jesteś gotowy poznać prawdę?</span>
-        </div>
-        <div class="btncont">
-            <button type="button" class="btn btn-primary button1">Zacznij podróż</button>
-            <a href="https://www.pudelek.pl/" type="button" class="btn btn-primary button2">Wolę śnić dalej</a>
+            <div class="btncont">
+                <button type="button" class="btn btn-primary button1">Zacznij podróż</button>
+                <a href="https://www.pudelek.pl/" type="button" class="btn btn-primary button2">Wolę śnić dalej</a>
+            </div>
         </div>
     </div>
 
     <div class="login">
+        <div class="register-font">ZAREJESTRUJ SIĘ</div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Login</span>
             <input type="text" class="form-control" id="username" placeholder="Username" required>
@@ -63,6 +65,7 @@
                             </div>
 
                             <div class="card-body">
+                                <a target="_blank" href="#" class="card-link link2">Załącz muzykę przed czytaniem</a>
                                 <a target="_blank" href="#" class="card-link link">Przeczytaj więcej</a>
                             </div>
                         </div>
@@ -73,8 +76,7 @@
                         <div class="card" style="width: 18rem;">
                             <canvas id="resultChart" width="400" height="400"></canvas>
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the bulk of the card's content.</p>
+                                <p class="card-text">Tutaj możesz zobaczyć składowe swojej osobowości. </p>
                             </div>
                         </div>
                         <div class="card" style="width: 18rem;">
@@ -87,8 +89,6 @@
             </div>
         </div>
     </div>
-
-
 
     <div class="question-container container">
         <div class="container">
@@ -135,18 +135,7 @@
         </div>
         <button type="button" class="btn btn-danger hidden" id="result">Pokaż mi prawdę</button>
         <div id="my-result" class="hidden"></div>
-
     </div>
-
-
-
-
-
-
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

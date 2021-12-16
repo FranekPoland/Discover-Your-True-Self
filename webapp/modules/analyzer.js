@@ -4,10 +4,7 @@ import {
 
 import {addLastQuestion} from "./questionmaker.js";
 
-import allQuestions from "../jsons/questions.json" assert {
-    type: 'json'
-};
-
+import allQuestions from "../jsons/questions.json" assert { type: 'json'};
 
 var getType = function () {
     var resultArr = getResult();
@@ -41,7 +38,6 @@ var getType = function () {
 
     }
     return type;
-
 }
 
 var getResult = function () {
