@@ -6,7 +6,6 @@ import {addLastQuestion} from "./questionmaker.js";
 
 import allQuestions from "../jsons/questions.json" assert { type: 'json'};
 
-
 var getType = function () {
     var resultArr = getResult();
     var c, b, r;

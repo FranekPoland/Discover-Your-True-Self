@@ -2,10 +2,9 @@
 import { getResult } from "./analyzer.js";
 
 var createChart = function () {
-    
-    // new Chart(ctx, {
+
     var ctx = document.getElementById('resultChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Cuckold', 'Blackpill', 'Redpill'],

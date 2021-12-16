@@ -39,7 +39,8 @@ function showFeedBack(msg) {
     $('.notification').show().text(msg);
 }
 
-function isValidRegister() {
+
+function isValid() {
     var name = $('#username').val();
     var password = $('#password').val();
     if (name.length < 3 || password.length < 6) {
@@ -52,19 +53,21 @@ function isValidRegister() {
 function register() {
     var name = $('#username').val();
     var password = $('#password').val();
-    if (!isValidRegister() ) {
+    if (!isValid() ) {
         return;
     } 
-        $.ajax({
-            method: "POST",
-            url: url + 'register?&name=' + name + '&password=' + password,
-            dataType: "json"
-        }).done(function(resp) {
-            showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
+    $.ajax({
+        method: "POST",
+        url: url + 'register?&name=' + name + '&password=' + password,
+    }).then(function(resp) {
+        if (resp === 'User was created') {
+            toggleLogin();
+            return showFeedBack('Twoje konto zostało pomyślnie utworzone, możesz się teraz zalogować');
+        }
+    }).fail(function(err) {
+        if (err.responseText === 'This name is already used') return showFeedBack('Login zajęty, próbuj innego typie');
+    });
 
-        }).fail(function(resp) {
-            showFeedBack('Login zajęty, próbuj innego typie');
-        });
 }
 
 function login() {
